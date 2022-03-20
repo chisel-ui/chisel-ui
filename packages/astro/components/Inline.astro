@@ -1,0 +1,72 @@
+---
+import { CSSLength, uid } from '../index.ts'
+import InlineCluster, {
+	InlineClusterProps,
+} from './InlineCluster.astro'
+
+export interface InlineProps extends InlineClusterProps {
+	stretch?: 'all' | 'start' | 'end' | number
+	switchAt?: CSSLength | number
+}
+
+function shouldUseSwitch(switchAt?: CSSLength | number) {
+	if (switchAt && switchAt > -1) {
+		return true
+	}
+
+	return false
+}
+
+const { stretch, switchAt, style = '', ...props } = Astro.props as InlineProps
+
+const maybeSwitchAt = shouldUseSwitch(switchAt)
+	? typeof switchAt === 'string'
+		? switchAt
+		: `${switchAt}px`
+	: undefined
+
+const id = uid()
+
+const inlineStyle =
+	typeof stretch === 'number' &&
+	`
+    #${id} > :nth-child(${stretch}) {
+        flex: 1;
+    }
+`
+---
+
+<InlineCluster
+	data-chisel-inline
+	style={`--switchAt: ${maybeSwitchAt};`}
+	data-stretch={typeof stretch === 'string' && stretch}
+	{...props}
+>
+	<slot />
+</InlineCluster>
+
+{inlineStyle && (
+	<style set:html={inlineStyle}></style>
+)}
+
+<style global>
+	[data-chisel-inline] {
+		flex-wrap: nowrap;
+	}
+	[data-chisel-inline][data-stretch='all'] > * {
+		flex: 1;
+	}
+	[data-chisel-inline][data-stretch='start'] > :first-child {
+		flex: 1;
+	}
+	[data-chisel-inline][data-stretch='end'] > :last-child {
+		flex: 1;
+	}
+	[data-chisel-inline][style*='--switchAt'] {
+		flex-wrap: wrap;
+	}
+	[data-chisel-inline][style*='--switchAt'] > * {
+		min-inline-size: fit-content;
+		flex-basis: calc((var(--switchAt) - (100% - var(--gutter, 0px))) * 999);
+	}
+</style>

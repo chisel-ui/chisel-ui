@@ -1,0 +1,57 @@
+---
+import { getSizeValue, CSSLength, SizesOptions } from '../index.ts'
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export type MaxWidth = number | CSSLength | SizesOptions
+
+export interface CenterProps extends SpacerProps {
+	maxWidth?: MaxWidth
+	centerText?: boolean
+	centerContent?: boolean
+}
+
+const {
+	theme = {},
+	maxWidth = 'medium',
+	centerText = false,
+	centerContent = false,
+	style = '',
+	...props
+} = Astro.props as CenterProps
+
+const safeMaxWidth =
+	typeof maxWidth === 'number' && maxWidth > 0
+		? `${maxWidth}px`
+		: getSizeValue(theme, maxWidth) ?? maxWidth
+
+const attrValue = [centerText && 'text', centerContent && 'content']
+	.filter(Boolean)
+	.join(' ')
+---
+
+<Spacer
+	data-chisel-center={attrValue}
+	style={`--maxWidth: ${safeMaxWidth};${style}`}
+	{theme}
+	{...props}
+>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-center] {
+		box-sizing: content-box;
+		margin-inline-start: auto;
+		margin-inline-end: auto;
+		margin-inline: auto;
+		max-inline-size: var(--maxWidth, 100%);
+	}
+	[data-chisel-center~='content'] {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	[data-chisel-center~='text'] {
+		text-align: center;
+	}
+</style>

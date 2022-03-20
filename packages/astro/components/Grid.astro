@@ -1,0 +1,43 @@
+---
+import { getSizeValue, CSSLength, SizesOptions } from '../index.ts'
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export type MinItemWidth = number | CSSLength | SizesOptions
+
+export interface GridProps extends SpacerProps {
+	minItemWidth?: MinItemWidth
+}
+
+const {
+	theme = {},
+	minItemWidth,
+	style = '',
+	...props
+} = Astro.props as GridProps
+
+const maybeMinItemWidth = getSizeValue(theme, minItemWidth) ?? minItemWidth
+---
+
+<Spacer
+	data-chisel-grid
+	style={`--minItemWidth: ${maybeMinItemWidth};${style}`}
+	{theme}
+	{...props}
+>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-grid] {
+		box-sizing: border-box;
+		display: grid;
+		gap: var(--gutter, 0px);
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(min(var(--minItemWidth, 639px), 100%), 1fr)
+		);
+	}
+	[data-chisel-grid] > * {
+		margin: 0;
+	}
+</style>

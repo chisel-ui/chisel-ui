@@ -20,13 +20,13 @@ importers:
 
   demo:
     specifiers:
-      '@example/my-component': workspace:*
+      '@chisel-ui/astro': workspace:*
       astro: ^0.24.3
     devDependencies:
-      '@example/my-component': link:../packages/my-component
+      '@chisel-ui/astro': link:../packages/astro
       astro: 0.24.3
 
-  packages/my-component:
+  packages/astro:
     specifiers: {}
 
 packages:

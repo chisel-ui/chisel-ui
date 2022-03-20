@@ -1,0 +1,66 @@
+---
+import {
+	checkIsCSSLength,
+	getSizeValue,
+	CSSLength,
+	SizeOptions,
+} from '../index.ts'
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export type Basis = CSSLength | number | SizeOptions
+
+export interface ColumnDropProps extends SpacerProps {
+	basis?: Basis
+	noStretchedColumns?: boolean
+}
+
+function getSafeBasis<T extends Record<string, unknown>>(
+	theme: T,
+	basis?: Basis
+) {
+	if (typeof basis == 'number') {
+		return `${basis}px`
+	}
+	if (checkIsCSSLength(basis as string)) {
+		return basis
+	}
+	return getSizeValue(theme, basis as string)
+}
+
+const {
+	theme = {},
+	basis,
+	noStretchedColumns = false,
+	style = '',
+	...props
+} = Astro.props as ColumnDropProps
+
+const safeBasis = getSafeBasis(theme, basis)
+---
+
+<Spacer
+	data-chisel-column-drop={noStretchedColumns ? 'no-stretched-columns' : ''}
+	style={`--basis: ${safeBasis};${style}`}
+	{theme}
+	{...props}
+>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-column-drop] {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--gutter, 0px);
+	}
+	[data-chisel-column-drop] > * {
+		margin: 0;
+		flex-basis: var(--basis, 159px);
+		flex-grow: 1;
+		flex-shrink: 1;
+	}
+	[data-chisel-column-drop='no-stetched-columns'] > * {
+		flex-grow: 0;
+	}
+</style>

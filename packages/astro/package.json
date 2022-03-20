@@ -4,14 +4,12 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		".": "./index.js",
-		"./Button": "./Button.astro",
-		"./Heading": "./Heading.astro"
+		".": "./index.ts"
 	},
 	"files": [
-		"index.js",
-		"Button.astro",
-		"Heading.jsx"
+		"components",
+		"lib",
+		"index.ts"
 	],
 	"keywords": [
 		"withastro",

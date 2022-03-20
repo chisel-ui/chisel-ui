@@ -1,0 +1,51 @@
+---
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export interface InlineClusterProps extends SpacerProps {
+	justify?: 'start' | 'end' | 'center'
+	align?: 'start' | 'end' | 'center' | 'stretch'
+}
+
+const justifyMap = {
+	start: 'flex-start',
+	end: 'flex-end',
+	center: 'center',
+}
+
+const alignMap = {
+	...justifyMap,
+	stretch: 'stretch',
+}
+
+const {
+	justify = 'start',
+	align = 'start',
+	style = '',
+	...props
+} = Astro.props as InlineClusterProps
+
+const maybeJustify = justifyMap[justify] || justifyMap.start
+const maybeAlign = alignMap[align] || alignMap.start
+---
+
+<Spacer
+	data-chisel-inline-cluster
+	style={`--justify: ${maybeJustify}; --align: ${maybeAlign};${style}`}
+	{...props}
+>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-inline-cluster] {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--gutter, 0px);
+		justify-content: var(--justify, 'flex-start');
+		align-items: var(--align, 'flex-start');
+	}
+	[data-chisel-inline-cluster] > * {
+		margin: 0;
+	}
+</style>

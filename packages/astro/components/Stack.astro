@@ -1,0 +1,26 @@
+---
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export interface StackProps extends SpacerProps {}
+
+const { ...props } = Astro.props as StackProps
+---
+
+<Spacer data-chisel-stack {...props}>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-stack] {
+		box-sizing: border-box;
+		display: grid;
+		gap: var(--gutter, 0px);
+		align-content: start;
+	}
+	[data-chisel-stack] > * {
+		margin: 0;
+	}
+	[data-chisel-stack] > [data-chisel-column] {
+		grid-column: span 1 / auto;
+	}
+</style>

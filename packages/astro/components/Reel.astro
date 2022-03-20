@@ -1,0 +1,33 @@
+---
+import Spacer, { SpacerProps } from './Spacer.astro'
+
+export interface ReelProps extends SpacerProps {
+	snapType?: 'none' | 'proximity' | 'mandatory'
+}
+
+const { snapType = 'none', ...props } = Astro.props as ReelProps
+---
+
+<Spacer data-chisel-reel={snapType} {...props}>
+	<slot />
+</Spacer>
+
+<style global>
+	[data-chisel-reel] {
+		box-sizing: border-box;
+		display: flex;
+		gap: var(--gutter, 0px);
+		overflow-x: scroll;
+		scroll-snap-type: none;
+	}
+	[data-chisel-reel='proximity'] {
+		scroll-snap-type: x proximity;
+	}
+	[data-chisel-reel='mandatory'] {
+		scroll-snap-type: x mandatory;
+	}
+	[data-chisel-reel] > * {
+		margin: 0;
+		scroll-snap-align: start;
+	}
+</style>

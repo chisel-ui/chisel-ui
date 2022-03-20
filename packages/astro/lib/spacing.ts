@@ -12,10 +12,9 @@ export interface Spacing {
 	md: CSSLength
 	lg: CSSLength
 	xl: CSSLength
-	xxl: CSSLength
-	xxxl: CSSLength
-	xxxxl: CSSLength
-	xxxxxl: CSSLength
+	'2xl': CSSLength
+	'3xl': CSSLength
+	'4xl': CSSLength
 }
 
 type ThemeOrDefaultSpace<T> = T extends {
@@ -28,30 +27,17 @@ type ThemeOrDefaultSpace<T> = T extends {
 
 export type SpacingOptions = ThemeOrDefaultSpace<DefaultTheme>
 
-const none = '0px'
-const xxs = '0.0625rem'
-const xs = '0.125rem'
-const sm = '0.25rem'
-const md = '0.5rem'
-const lg = '0.75rem'
-const xl = '1rem'
-const xxl = '1.5rem'
-const xxxl = '2rem'
-const xxxxl = '3rem'
-const xxxxxl = '4rem'
-
 export const spacing: Record<string, CSSLength> = {
-	none,
-	xxs,
-	xs,
-	sm,
-	md,
-	lg,
-	xl,
-	xxl,
-	xxxl,
-	xxxxl,
-	xxxxxl,
+	none: '0px',
+	xxs: '0.125rem',
+	xs: '0.5rem',
+	sm: '0.75rem',
+	md: '1rem',
+	lg: '1.25rem',
+	xl: '1.75rem',
+	'2xl': '2.25rem',
+	'3xl': '3rem',
+	'4xl': '4.5rem',
 }
 
 type GetSpacingValue = <T>(
