@@ -1,0 +1,36 @@
+---
+import Center from './Center.astro'
+import Component, { ComponentProps } from '../Component.astro'
+import { getSizeValue, sizes, BaseTheme, CSSLength, SizeOptions } from '../../index.ts'
+
+export interface AppBoundaryProps extends ComponentProps {
+    boundarySize?: BoundarySize
+}
+
+type BoundarySize = number | CSSLength | SizeOptions
+
+function getMaybeSize(theme: BaseTheme, boundarySize?: BoundarySize) {
+    return typeof boundarySize === 'number' && boundarySize > 0
+        ? `${boundarySize}px`
+        : getSizeValue(theme, boundarySize) ?? (boundarySize as CSSLength | undefined)
+}
+
+const { boundarySize, theme = {}, ...props } = Astro.props as AppBoundaryProps
+
+const maybeSize = getMaybeSize(boundarySize)
+---
+
+<Component data-chisel-appboundary {theme} {...props}>
+    <Center maxWidth={maybeSize ?? sizes['2xl']}>
+        <slot />
+    </Center>
+</Component>
+
+<style global>
+    [data-chisel-appboundary] {
+        padding: 0;
+        max-inline-size: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+</style>

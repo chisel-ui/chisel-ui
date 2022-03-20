@@ -7,6 +7,7 @@ export * from './lib/themes'
 export * from './lib/uid'
 export * from './lib/utils'
 
+export { default as AppBoundary } from './components/wrappers/AppBoundary.astro'
 export { default as Center } from './components/wrappers/Center.astro'
 export { default as ColumnDrop } from './components/spacers/ColumnDrop.astro'
 export { default as Columns } from './components/spacers/Columns.astro'

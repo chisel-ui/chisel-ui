@@ -12,7 +12,7 @@ export interface CenterProps extends ComponentProps {
 
 const {
 	theme = {},
-	maxWidth = 'medium',
+	maxWidth,
 	centerText = false,
 	centerContent = false,
 	style = '',
@@ -27,11 +27,16 @@ const safeMaxWidth =
 const attrValue = [centerText && 'text', centerContent && 'content']
 	.filter(Boolean)
 	.join(' ')
+
+const componentStyle = [
+	safeMaxWidth && `--maxWidth: ${safeMaxWidth}`,
+	style
+].filter(Boolean).join(';')
 ---
 
 <Component
 	data-chisel-center={attrValue}
-	style={`--maxWidth: ${safeMaxWidth};${style}`}
+	style={componentStyle}
 	{theme}
 	{...props}
 >
