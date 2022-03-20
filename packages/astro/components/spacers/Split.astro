@@ -1,11 +1,29 @@
 ---
-import { Sizes, sizes, uid } from '../index.ts'
+import { Sizes, sizes, uid } from '../../index.ts'
 import Stack, { StackProps } from './Stack.astro'
 
-export interface ColumnsProps extends StackProps {
-	columns?: number
-	dense?: boolean
+export interface SplitProps extends StackProps {
+	fraction?: Fraction
 	switchAt?: number | string | keyof Sizes
+}
+
+type Fraction =
+	| 'auto-start'
+	| 'auto-end'
+	| '1/4'
+	| '1/3'
+	| '1/2'
+	| '2/3'
+	| '3/4'
+
+const fractions = {
+	'1/4': '1fr 3fr',
+	'1/3': '1fr 2fr',
+	'1/2': '1fr 1fr',
+	'2/3': '2fr 1fr',
+	'3/4': '3fr 1fr',
+	'auto-start': 'auto 1fr',
+	'auto-end': '1fr auto',
 }
 
 function getBreakpoint(switchAt?: number | string | keyof Sizes) {
@@ -25,14 +43,14 @@ function getBreakpoint(switchAt?: number | string | keyof Sizes) {
 }
 
 const {
-	columns = 1,
-	dense = false,
-	switchAt,
+	theme = {},
+	fraction = '1/2',
+	switchAt = '0px',
 	...props
-} = Astro.props as ColumnsProps
+} = Astro.props as SplitProps
 const id = uid()
 
-const maybeColumns = columns || 1
+const maybeFraction = fractions[fraction] || fractions['1/2']
 const maybeBreakpoint = getBreakpoint(switchAt)
 
 const inlineStyle =
@@ -40,13 +58,13 @@ const inlineStyle =
 	`
     @media (min-width: ${maybeBreakpoint}) {
         #${id} {
-            --columns: ${maybeColumns};
+            --columns: ${maybeFraction};
         }
     }
 `
 ---
 
-<Stack data-chisel-columns={dense ? 'dense' : ''} {id} {...props}>
+<Stack data-chisel-split {id} {theme} {...props}>
 	<slot />
 </Stack>
 
@@ -55,17 +73,14 @@ const inlineStyle =
 )}
 
 <style global>
-	[data-chisel-columns] {
+	[data-chisel-split] {
 		box-sizing: border-box;
 		display: grid;
-		grid-template-columns: repeat(var(--columns, 1), 1fr);
 		gap: var(--gutter, 0px);
-		grid-auto-flow: row;
+		grid-template-columns: var(--columns, 1fr);
 	}
-	[data-chisel-columns='dense'] {
-		grid-auto-flow: row dense;
-	}
-	[data-chisel-columns] > * {
+	[data-chisel-split] > * {
 		margin: 0;
 	}
 </style>
+

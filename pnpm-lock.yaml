@@ -20,11 +20,11 @@ importers:
 
   demo:
     specifiers:
-      '@chisel-ui/astro': workspace:*
       astro: ^0.24.3
+      chisel-ui: workspace:*
     devDependencies:
-      '@chisel-ui/astro': link:../packages/astro
       astro: 0.24.3
+      chisel-ui: link:../packages/astro
 
   packages/astro:
     specifiers: {}

@@ -6,23 +6,13 @@ export * from './lib/themes'
 export * from './lib/uid'
 export * from './lib/utils'
 
-export { default as Center, CenterProps } from './components/Center.astro'
-export {
-	default as ColumnDrop,
-	ColumnDropProps,
-} from './components/ColumnDrop.astro'
-export { default as Columns, ColumnsProps } from './components/Columns.astro'
-export {
-	default as Component,
-	ComponentProps,
-} from './components/Component.astro'
-export { default as Grid, GridProps } from './components/Grid.astro'
-export { default as Inline, InlineProps } from './components/Inline.astro'
-export {
-	default as InlineCluster,
-	InlineClusterProps,
-} from './components/InlineCluster.astro'
-export { default as Reel, ReelProps } from './components/Reel.astro'
-export { default as Spacer, SpacerProps } from './components/Spacer.astro'
-export { default as Split, SplitProps } from './components/Split.astro'
-export { default as Stack, StackProps } from './components/Stack.astro'
+export { default as Center } from './components/wrappers/Center.astro'
+export { default as ColumnDrop } from './components/spacers/ColumnDrop.astro'
+export { default as Columns } from './components/spacers/Columns.astro'
+export { default as Component } from './components/Component.astro'
+export { default as Grid } from './components/spacers/Grid.astro'
+export { default as Inline } from './components/spacers/Inline.astro'
+export { default as InlineCluster } from './components/spacers/InlineCluster.astro'
+export { default as Reel } from './components/spacers/Reel.astro'
+export { default as Split } from './components/spacers/Split.astro'
+export { default as Stack } from './components/spacers/Stack.astro'

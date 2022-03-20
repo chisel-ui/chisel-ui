@@ -1,10 +1,10 @@
 ---
-import { getSizeValue, CSSLength, SizesOptions } from '../index.ts'
-import Spacer, { SpacerProps } from './Spacer.astro'
+import { getSizeValue, CSSLength, SizesOptions } from '../../index.ts'
+import Component, { ComponentProps } from '../Component.astro'
 
 export type MaxWidth = number | CSSLength | SizesOptions
 
-export interface CenterProps extends SpacerProps {
+export interface CenterProps extends ComponentProps {
 	maxWidth?: MaxWidth
 	centerText?: boolean
 	centerContent?: boolean
@@ -29,14 +29,14 @@ const attrValue = [centerText && 'text', centerContent && 'content']
 	.join(' ')
 ---
 
-<Spacer
+<Component
 	data-chisel-center={attrValue}
 	style={`--maxWidth: ${safeMaxWidth};${style}`}
 	{theme}
 	{...props}
 >
 	<slot />
-</Spacer>
+</Component>
 
 <style global>
 	[data-chisel-center] {
