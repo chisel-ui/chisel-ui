@@ -1,0 +1,21 @@
+---
+import { getSafeGutter, Gutter } from '../index.ts'
+import Component, { ComponentProps } from './Component.astro'
+
+export interface SpacerProps extends ComponentProps {
+	gutter?: Gutter
+}
+
+const {
+	gutter = '0px',
+	theme = {},
+	style = '',
+	...props
+} = Astro.props as SpacerProps
+
+const safeGutter = getSafeGutter(theme, gutter)
+---
+
+<Component style={`--gutter: ${safeGutter};${style}`} {...props}>
+	<slot />
+</Component>
