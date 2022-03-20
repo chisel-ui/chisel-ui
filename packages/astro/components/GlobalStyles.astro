@@ -1,0 +1,11 @@
+---
+import '../css/reset.css'
+
+export interface GlobalStylesProps {
+    opinionated?: boolean
+}
+
+const { opinionated = false } = Astro.props as GlobalStylesProps
+
+if (opinionated) { await import('../css/opinionated.css') }
+---

@@ -1,5 +1,5 @@
 ---
-import { AppBoundary } from 'chisel-ui'
+import { AppBoundary, GlobalStyles } from 'chisel-ui'
 ---
 
 <html lang="en">
@@ -7,11 +7,14 @@ import { AppBoundary } from 'chisel-ui'
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Welcome to Chisel UI</title>
+		<GlobalStyles opinionated />
 	</head>
 
 	<body>
 		<AppBoundary>
-        	<slot />
+			<main>
+        		<slot />
+			</main>
 		</AppBoundary>
 	</body>
 </html>
