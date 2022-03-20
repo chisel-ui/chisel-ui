@@ -9,7 +9,7 @@ export interface ComponentProps {
 	[key: string]: any
 }
 
-const { as: Tag = 'div', ...props } = Astro.props as ComponentProps
+const { as: Tag = 'div', theme, ...props } = Astro.props as ComponentProps
 ---
 
 <Tag {...props}>

@@ -1,0 +1,120 @@
+---
+import { checkIsCSSLength, getSafeGutter, spacing as defaultSpacing, uid, BaseTheme, Gutter } from '../../index.ts'
+import Component, { ComponentProps } from '../Component.astro'
+
+export interface PadBoxProps extends ComponentProps {
+    padding?: PaddingTypes
+}
+
+type PaddingValue = Gutter
+
+interface PaddingObj {
+    left: PaddingValue
+    right: PaddingValue
+    top: PaddingValue
+    bottom: PaddingValue
+    inlineStart: PaddingValue
+    inlineEnd: PaddingValue
+    blockStart: PaddingValue
+    blockEnd: PaddingValue
+}
+
+type PaddingTypes =
+    | PaddingValue
+    | Partial<PaddingObj>
+    | [PaddingValue]
+    | [PaddingValue, PaddingValue]
+    | [PaddingValue, PaddingValue, PaddingValue]
+    | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
+
+const keyToProperty = {
+    'left': (val: string) => `padding-inline-start:${val};`,
+    'right': (val: string) => `padding-inline-end:${val};`,
+    'top': (val: string) => `padding-block-start:${val};`,
+    'bottom': (val: string) => `padding-block-end:${val};`,
+    'inlineStart': (val: string) => `padding-inline-start:${val};`,
+    'inlineEnd': (val: string) => `padding-inline-end:${val};`,
+    'blockStart': (val: string) => `padding-block-start:${val};`,
+    'blockEnd': (val: string) => `padding-block-end:${val};`,
+}
+
+function paddingToString(theme: BaseTheme, padding: PaddingTypes) {
+    if (Array.isArray(padding) && padding.length > 4) {
+        throw new Error("padding arrays can only be 4 or less in length")
+    }
+
+    const validSpacings = new Set(Object.keys(theme.spacing ?? defaultSpacing))
+
+    const isValidPadding = () => {
+        if (typeof padding === "number" || typeof padding === "string") {
+            return (
+                padding > 0 ||
+                validSpacings.has(padding.toString()) ||
+                checkIsCSSLength(padding.toString())
+            )
+        }
+
+        if (Array.isArray(padding)) {
+            return padding.every((val) => {
+                return (
+                    val > 0 ||
+                    validSpacings.has(val.toString()) ||
+                    checkIsCSSLength(val.toString())
+                )
+            })
+        }
+
+        return (
+            padding !== undefined &&
+            Object.keys(padding).every((key) => key in keyToProperty &&
+            Object.values(padding).every((val) => {
+                return (
+                val > 0 ||
+                validSpacings.has(val.toString()) ||
+                checkIsCSSLength(val.toString())
+                )
+            })
+        ))
+    }
+
+    if (!isValidPadding()) {
+        console.error("Invalid padding Type")
+    }
+
+    return typeof padding === "object" && !Array.isArray(padding)
+        ? Object.entries(padding).reduce(
+            (acc, [key, val]) =>
+            acc + keyToProperty[key](getSafeGutter(theme, val) ?? "0px"),
+            ""
+        )
+        : `padding: ${Array.from(Array.isArray(padding) ? padding : [padding])
+            .map((pad: Gutter) => getSafeGutter(theme, pad) ?? "0px")
+            .join(" ")};`
+}
+
+const { theme = {}, padding, ...props } = Astro.props as PadBoxProps
+
+const maybePadding = paddingToString(theme, padding)
+
+const id = uid()
+
+const inlineStyle = maybePadding && `
+    #${id} {
+        ${maybePadding}
+    }
+`
+---
+
+<Component data-chisel-padbox {id} {theme} {...props}>
+    <slot />
+</Component>
+
+{inlineStyle && (
+    <style set:html={inlineStyle}></style>
+)}
+
+<style global>
+    [data-chisel-padbox] {
+        box-sizing: border-box;
+    }
+</style>
