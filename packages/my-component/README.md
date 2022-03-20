@@ -10,6 +10,7 @@ The **Button** component generates a `<button>` with a default **type** of **but
 ---
 import * as Component from '@example/my-component'
 ---
+
 <Component.Button>Plain Button</Component.Button>
 ```
 
@@ -26,6 +27,7 @@ The **Heading** component generates an `<h>` tag with a default **role** of **he
 ---
 import * as Component from '@example/my-component'
 ---
+
 <Component.Heading>Heading</Component.Heading>
 <Component.Heading level="2">Subheading</Component.Heading>
 ```
