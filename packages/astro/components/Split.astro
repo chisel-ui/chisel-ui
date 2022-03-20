@@ -45,7 +45,7 @@ function getBreakpoint(switchAt?: number | string | keyof Sizes) {
 const {
 	theme = {},
 	fraction = '1/2',
-	switchAt,
+	switchAt = '0px',
 	...props
 } = Astro.props as SplitProps
 const id = uid()

@@ -6,7 +6,7 @@ import type { Maybe } from './utils'
 
 export interface Spacing {
 	none: CSSLength
-	xxs: CSSLength
+	'2xs': CSSLength
 	xs: CSSLength
 	sm: CSSLength
 	md: CSSLength
@@ -29,7 +29,7 @@ export type SpacingOptions = ThemeOrDefaultSpace<DefaultTheme>
 
 export const spacing: Record<string, CSSLength> = {
 	none: '0px',
-	xxs: '0.125rem',
+	'2xs': '0.125rem',
 	xs: '0.5rem',
 	sm: '0.75rem',
 	md: '1rem',

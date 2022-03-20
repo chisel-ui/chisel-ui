@@ -34,11 +34,16 @@ const inlineStyle =
         flex: 1;
     }
 `
+
+const componentStyle = [
+	maybeSwitchAt && `--switchAt: ${maybeSwitchAt}`,
+	style
+].filter(Boolean).join(';')
 ---
 
 <InlineCluster
 	data-chisel-inline
-	style={`--switchAt: ${maybeSwitchAt};`}
+	style={componentStyle}
 	data-stretch={typeof stretch === 'string' && stretch}
 	{...props}
 >
