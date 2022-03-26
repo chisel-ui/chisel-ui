@@ -1,0 +1,15 @@
+---
+interface Props {
+    open?: boolean
+}
+
+const { open } = Astro.props as Props
+---
+
+<details {open}>
+    <summary>
+        <slot name="summary" />
+    </summary>
+
+    <slot />
+</details>

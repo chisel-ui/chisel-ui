@@ -17,7 +17,7 @@ function getMaybeSize(theme: BaseTheme, boundarySize?: BoundarySize) {
 
 const { boundarySize, theme = {}, ...props } = Astro.props as AppBoundaryProps
 
-const maybeSize = getMaybeSize(boundarySize)
+const maybeSize = getMaybeSize(theme, boundarySize)
 ---
 
 <Component data-chisel-appboundary {theme} {...props}>
@@ -30,7 +30,8 @@ const maybeSize = getMaybeSize(boundarySize)
     [data-chisel-appboundary] {
         padding: 0;
         max-inline-size: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         height: 100%;
     }
 </style>
