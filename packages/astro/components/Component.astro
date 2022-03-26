@@ -1,13 +1,5 @@
 ---
-import { BaseTheme } from '../index.ts'
-
-export interface ComponentProps {
-	as?: string
-	theme?: BaseTheme
-	class?: string
-	style?: string
-	[key: string]: any
-}
+import type { ComponentProps } from './types.ts'
 
 const { as: Tag = 'div', theme, ...props } = Astro.props as ComponentProps
 ---

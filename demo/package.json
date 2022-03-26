@@ -9,7 +9,8 @@
 		"preview": "astro preview"
 	},
 	"devDependencies": {
-		"chisel-ui": "workspace:*",
-		"astro": "^0.24.3"
+		"astro": "^0.25.2",
+		"astro-icon": "^0.6.1",
+		"chisel-ui": "workspace:*"
 	}
 }

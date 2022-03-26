@@ -1,13 +1,6 @@
 ---
-import Component, { ComponentProps } from '../Component.astro'
-
-export interface FrameProps extends ComponentProps {
-    ratio?: Ratio
-    position?: string
-}
-
-type RatioString = `${number}/${number}` | `${number} / ${number}`
-type Ratio = [number, number] | RatioString
+import Component from '../Component.astro'
+import type { FrameProps, Ratio, RatioString } from '../types.ts'
 
 function checkIsRatio(ratio: unknown): ratio is Ratio {
   const isCorrectArray =

@@ -1,20 +1,7 @@
 ---
 import { Sizes, sizes, uid } from '../../index.ts'
-import Stack, { StackProps } from './Stack.astro'
-
-export interface SplitProps extends StackProps {
-	fraction?: Fraction
-	switchAt?: number | string | keyof Sizes
-}
-
-type Fraction =
-	| 'auto-start'
-	| 'auto-end'
-	| '1/4'
-	| '1/3'
-	| '1/2'
-	| '2/3'
-	| '3/4'
+import Stack from './Stack.astro'
+import type { SplitProps } from '../types.ts'
 
 const fractions = {
 	'1/4': '1fr 3fr',

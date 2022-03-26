@@ -1,7 +1,6 @@
 ---
-import Spacer, { SpacerProps } from '../Spacer.astro'
-
-export interface StackProps extends SpacerProps {}
+import Spacer from '../Spacer.astro'
+import type { StackProps } from '../types.ts'
 
 const { ...props } = Astro.props as StackProps
 ---
@@ -19,8 +18,5 @@ const { ...props } = Astro.props as StackProps
 	}
 	[data-chisel-stack] > * {
 		margin: 0;
-	}
-	[data-chisel-stack] > [data-chisel-column] {
-		grid-column: span 1 / auto;
 	}
 </style>

@@ -1,0 +1,161 @@
+---
+layout: "../../layouts/DocsLayout.astro"
+setup: |
+    import { ColumnDrop } from 'chisel-ui'
+    import Box from '../../components/Box.astro'
+title: Spacer Components | ColumnDrop
+---
+
+# ColumnDrop
+
+This component is an auto-wrapping column layout. Each row is treated independently and can have different column widths. The initial main size of items can be set, and by default items will be stretched to fill the full width of the row.
+
+## API
+
+| name | description | default |
+| ---- | ----------- | ------- |
+| **_gutter_** | Sets space between each element `number, CSSLength, or SpacingOption` | 0px |
+| **basis** | Sets the minimum width for each child `CSSLength` | (unset) |
+| **noStretchedColumns** | If true, the columns will not be stretched to fill the container `boolean` |
+
+## `gutter`
+
+The `gutter` property defines the gap between elements. This can be a size defined in your theme (like `md` or `2xl`), a valid `CSSLength`, or a positive integer.
+
+### Example usage
+
+#### Custom gutter as number (20)
+<ColumnDrop gutter={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### Custom gutter as string ("3ch")
+<ColumnDrop gutter="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### none
+<ColumnDrop gutter="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### 2xs
+<ColumnDrop gutter="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### xs
+<ColumnDrop gutter="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### sm
+<ColumnDrop gutter="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### md
+<ColumnDrop gutter="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### lg
+<ColumnDrop gutter="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### xl
+<ColumnDrop gutter="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### 2xl
+<ColumnDrop gutter="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### 3xl
+<ColumnDrop gutter="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### 4xl
+<ColumnDrop gutter="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+## `basis`
+
+The `basis` property sets the initial main size of the child items.
+
+### Example usage
+
+#### 15rem
+<ColumnDrop gutter="lg" basis="15rem">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+
+#### Item-specific basis
+<ColumnDrop gutter="lg" basis="15rem">
+    <Box />
+    <Box style="--basis: 25rem;">
+        25rem
+    </Box>
+    <Box />
+    <Box />
+</ColumnDrop>
+
+
+## `noStretchedColumns`
+
+By default, `ColumnDrop` will stretch items to fill each row. Adding the `noStretchedColumns` attribute will disable stretching and use the `basis` to determine the width of each column and center the columns of each row.
+
+<ColumnDrop noStretchedColumns gutter="lg" basis="20rem">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>

@@ -1,50 +1,62 @@
 ---
-import { AppBoundary, GlobalStyles, Stack } from 'chisel-ui'
+import { AppBoundary, Stack } from 'chisel-ui'
+import { Sprite } from 'astro-icon'
+import 'chisel-ui/css/reset.css'
+import 'chisel-ui/css/opinionated.css'
 import Accordion from '../components/Accordion.astro'
 import SidebarLayout from '../components/SidebarLayout.astro'
+
+const { content } = Astro.props
+const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Welcome to Chisel UI</title>
-		<GlobalStyles opinionated />
+		<title>{title}</title>
+        
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	</head>
 
 	<body>
-        <SidebarLayout>
-            <Stack as="nav" slot="sidebar" gutter="lg">
-                <Accordion open>
-                    <Fragment slot="summary">Spacers</Fragment>
+        <Sprite.Provider>
+            <SidebarLayout>
+                <Stack as="nav" slot="sidebar" gutter="lg">
+                    <Accordion open>
+                        <Fragment slot="summary">Spacers</Fragment>
 
-                    <Stack as="ul" gutter="xs">
-                        <li><a href="/spacers/columndrop">ColumnDrop</a></li>
-                        <li><a href="/spacers/columns">Columns</a></li>
-                        <li><a href="/spacers/grid">Grid</a></li>
-                        <li><a href="/spacers/inline">Inline</a></li>
-                        <li><a href="/spacers/inlinecluster">InlineCluster</a></li>
-                        <li><a href="/spacers/split">Split</a></li>
-                        <li><a href="/spacers/stack">Stack</a></li>
-                    </Stack>
-                </Accordion>
+                        <Stack as="ul" gutter="xs">
+                            <li><a href="/spacers/columndrop">ColumnDrop</a></li>
+                            <li><a href="/spacers/columns">Columns</a></li>
+                            <li><a href="/spacers/column">Column</a></li>
+                            <li><a href="/spacers/grid">Grid</a></li>
+                            <li><a href="/spacers/inline">Inline</a></li>
+                            <li><a href="/spacers/inlinecluster">InlineCluster</a></li>
+                            <li><a href="/spacers/split">Split</a></li>
+                            <li><a href="/spacers/stack">Stack</a></li>
+                        </Stack>
+                    </Accordion>
 
-                <Accordion open>
-                    <Fragment slot="summary">Wrappers</Fragment>
+                    <Accordion open>
+                        <Fragment slot="summary">Wrappers</Fragment>
 
-                    <Stack as="ul" gutter="xs">
-                        <li><a href="/wrappers/center">Center</a></li>
-                        <li><a href="/wrappers/cover">Cover</a></li>
-                        <li><a href="/wrappers/frame">Frame</a></li>
-                        <li><a href="/wrappers/padbox">PadBox</a></li>
-                    </Stack>
-                </Accordion>
-            </Stack>
+                        <Stack as="ul" gutter="xs">
+                            <li><a href="/wrappers/center">Center</a></li>
+                            <li><a href="/wrappers/cover">Cover</a></li>
+                            <li><a href="/wrappers/frame">Frame</a></li>
+                            <li><a href="/wrappers/padbox">PadBox</a></li>
+                        </Stack>
+                    </Accordion>
+                </Stack>
 
-            <AppBoundary as="main" boundarySize="xl">
-                <slot />
-            </AppBoundary>
-        </SidebarLayout>
+                <AppBoundary as="main" boundarySize="lg">
+                    <slot />
+                </AppBoundary>
+            </SidebarLayout>
+        </Sprite.Provider>
 	</body>
 </html>
 
@@ -56,5 +68,15 @@ import SidebarLayout from '../components/SidebarLayout.astro'
 
     nav ul {
         padding: 0.5rem 0 1rem;
+    }
+
+    main :global(table em) {
+        font-style: normal;
+    }
+
+    main :global(table em:after) {
+        content: "*";
+        color: red;
+        font-weight: normal;
     }
 </style>

@@ -1,7 +1,10 @@
 ---
+import { Center, Frame } from 'chisel-ui'
 import Layout from '../layouts/DocsLayout.astro'
 ---
 
 <Layout>
-    <h1>Coming soon!</h1>
+    <Frame as={Center} ratio="16/9" maxWidth="lg">
+        <img src="/banner.svg" alt="computer with data" />
+    </Frame>
 </Layout>

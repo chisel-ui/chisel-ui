@@ -1,12 +1,7 @@
 ---
-import { getSizeValue, CSSLength, SizesOptions } from '../../index.ts'
-import Spacer, { SpacerProps } from '../Spacer.astro'
-
-export type MinItemWidth = number | CSSLength | SizesOptions
-
-export interface GridProps extends SpacerProps {
-	minItemWidth?: MinItemWidth
-}
+import { getSizeValue } from '../../index.ts'
+import Spacer from '../Spacer.astro'
+import type { GridProps } from '../types.ts'
 
 const {
 	theme = {},

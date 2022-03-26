@@ -1,14 +1,7 @@
 ---
-import { getSizeValue, CSSLength, SizesOptions } from '../../index.ts'
-import Component, { ComponentProps } from '../Component.astro'
-
-export type MaxWidth = number | CSSLength | SizesOptions
-
-export interface CenterProps extends ComponentProps {
-	maxWidth?: MaxWidth
-	centerText?: boolean
-	centerContent?: boolean
-}
+import { getSizeValue } from '../../index.ts'
+import Component from '../Component.astro'
+import type { CenterProps } from '../types.ts'
 
 const {
 	theme = {},

@@ -1,12 +1,7 @@
 ---
 import { Sizes, sizes, uid } from '../../index.ts'
-import Stack, { StackProps } from './Stack.astro'
-
-export interface ColumnsProps extends StackProps {
-	columns?: number
-	dense?: boolean
-	switchAt?: number | string | keyof Sizes
-}
+import Stack from './Stack.astro'
+import type { ColumnsProps } from '../types.ts'
 
 function getBreakpoint(switchAt?: number | string | keyof Sizes) {
 	if (!switchAt) {
@@ -28,6 +23,7 @@ const {
 	columns = 1,
 	dense = false,
 	switchAt,
+	style,
 	...props
 } = Astro.props as ColumnsProps
 const id = uid()
@@ -44,9 +40,14 @@ const inlineStyle =
         }
     }
 `
+
+const componentStyle = [
+	maybeColumns && `--columns: ${maybeColumns}`,
+	style
+].filter(Boolean).join(';')
 ---
 
-<Stack data-chisel-columns={dense ? 'dense' : ''} {id} {...props}>
+<Stack data-chisel-columns={dense ? 'dense' : ''} {id} style={componentStyle} {...props}>
 	<slot />
 </Stack>
 

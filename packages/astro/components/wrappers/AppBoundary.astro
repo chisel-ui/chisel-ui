@@ -1,13 +1,8 @@
 ---
 import Center from './Center.astro'
-import Component, { ComponentProps } from '../Component.astro'
-import { getSizeValue, sizes, BaseTheme, CSSLength, SizeOptions } from '../../index.ts'
-
-export interface AppBoundaryProps extends ComponentProps {
-    boundarySize?: BoundarySize
-}
-
-type BoundarySize = number | CSSLength | SizeOptions
+import Component from '../Component.astro'
+import { getSizeValue, sizes, BaseTheme, CSSLength } from '../../index.ts'
+import type { AppBoundaryProps, BoundarySize } from '../types.ts'
 
 function getMaybeSize(theme: BaseTheme, boundarySize?: BoundarySize) {
     return typeof boundarySize === 'number' && boundarySize > 0

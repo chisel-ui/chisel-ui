@@ -1,10 +1,8 @@
 ---
-import { getSafeGutter, Gutter } from '../index.ts'
-import Component, { ComponentProps } from './Component.astro'
+import { getSafeGutter } from '../index.ts'
+import Component from './Component.astro'
+import type { SpacerProps } from './types.ts'
 
-export interface SpacerProps extends ComponentProps {
-	gutter?: Gutter
-}
 
 const {
 	gutter = '0px',

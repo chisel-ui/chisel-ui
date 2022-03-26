@@ -1,0 +1,53 @@
+---
+import Component from '../Component.astro'
+import type { ColumnProps } from '../types.ts'
+
+function safeSpan(span: any) {
+    return typeof span === 'number' ? span : 1
+}
+
+function safeOffset(offset: any) {
+    return offset > 0 ? offset : undefined
+}
+
+const { span, offsetStart, offsetEnd, style, ...props } = Astro.props as ColumnProps
+
+const maybeSpan = Math.max(safeSpan(span), 1)
+const maybeOffsetStart = safeOffset(offsetStart)
+const maybeOffsetEnd = safeOffset(offsetEnd)
+
+const componentStyle = [
+    maybeSpan && `--span: ${maybeSpan}`,
+    maybeOffsetStart && `--offsetStart: ${maybeOffsetStart}`,
+    maybeOffsetEnd && `--offsetEnd: ${maybeOffsetEnd}`,
+    style
+].filter(Boolean).join(';')
+---
+
+<Component data-chisel-column style={componentStyle} {...props}>
+    <slot />
+</Component>
+
+<style global>
+    [data-chisel-columns] [data-chisel-column] {
+        grid-column: span min(var(--span, 1), var(--columns, 1));
+    }
+
+    [data-chisel-columns] [data-chisel-column][style*="--offset"] {
+        display: contents;
+    }
+
+    [data-chisel-columns] [data-chisel-column][style*="--offset"] > * {
+        grid-column: span min(var(--span, 1), var(--columns, 1));
+    }
+
+    [data-chisel-columns] [data-chisel-column][style*="--offsetStart"]::before {
+        content: "";
+        grid-column: span min(var(--offsetStart, 1), var(--columns, 1));
+    }
+
+    [data-chisel-columns] [data-chisel-column][style*="--offsetEnd"]::after {
+        content: "";
+        grid-column: span min(var(--offsetEnd, 1), var(--columns, 1));
+    }
+</style>

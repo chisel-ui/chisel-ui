@@ -1,12 +1,7 @@
 ---
 import { checkIsCSSLength, getSafeGutter, spacing as defaultSpacing, uid, BaseTheme, Gutter } from '../../index.ts'
-import Component, { ComponentProps } from '../Component.astro'
-
-export interface PadBoxProps extends ComponentProps {
-    padding?: PaddingTypes
-}
-
-type PaddingValue = Gutter
+import Component from '../Component.astro'
+import type { PadBoxProps, PaddingValue } from '../types.ts'
 
 interface PaddingObj {
     left: PaddingValue

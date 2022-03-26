@@ -1,9 +1,6 @@
 ---
-import Spacer, { SpacerProps } from '../Spacer.astro'
-
-export interface ReelProps extends SpacerProps {
-	snapType?: 'none' | 'proximity' | 'mandatory'
-}
+import Spacer from '../Spacer.astro'
+import type { ReelProps } from '../types.ts'
 
 const { snapType = 'none', ...props } = Astro.props as ReelProps
 ---

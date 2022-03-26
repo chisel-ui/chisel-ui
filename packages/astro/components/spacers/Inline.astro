@@ -1,23 +1,18 @@
 ---
-import { CSSLength, uid } from '../../index.ts'
-import InlineCluster, {
-	InlineClusterProps,
-} from './InlineCluster.astro'
-
-export interface InlineProps extends InlineClusterProps {
-	stretch?: 'all' | 'start' | 'end' | number
-	switchAt?: CSSLength | number
-}
+import { CSSLength, uid, getSizeValue } from '../../index.ts'
+import InlineCluster from './InlineCluster.astro'
+import type { InlineProps } from '../types.ts'
 
 function shouldUseSwitch(switchAt?: CSSLength | number) {
 	if (switchAt && switchAt > -1) {
 		return true
 	}
 
-	return false
+	// TODO: validate the CSSLength
+	return typeof switchAt === 'string'
 }
 
-const { stretch, switchAt, style = '', ...props } = Astro.props as InlineProps
+const { stretch, switchAt, theme = {}, style = '', ...props } = Astro.props as InlineProps
 
 const maybeSwitchAt = shouldUseSwitch(switchAt)
 	? typeof switchAt === 'string'
@@ -43,8 +38,10 @@ const componentStyle = [
 
 <InlineCluster
 	data-chisel-inline
+	{id}
 	style={componentStyle}
 	data-stretch={typeof stretch === 'string' && stretch}
+	{theme}
 	{...props}
 >
 	<slot />

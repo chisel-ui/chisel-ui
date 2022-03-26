@@ -1,17 +1,12 @@
 ---
-import { checkIsCSSLength, getSizeValue, CSSLength, SizeOptions } from '../../index.ts'
-import Spacer, { SpacerProps } from '../Spacer.astro'
+import { checkIsCSSLength, getSizeValue } from '../../index.ts'
+import Spacer from '../Spacer.astro'
+import type { CoverProps, CSSSizeValue } from '../types.ts'
 
-export interface CoverProps extends SpacerProps {
-    minHeight?: MinHeight
-    stretchContent?: boolean
-}
-
-type MinHeight = CSSLength | number | SizeOptions
 
 function getSafeMinHeight<T extends Record<string, unknown>>(
   theme: T,
-  minHeight?: MinHeight
+  minHeight?: CSSSizeValue
 ) {
   if (typeof minHeight === "number") return `${minHeight}px`;
   if (checkIsCSSLength(minHeight as string)) return minHeight;

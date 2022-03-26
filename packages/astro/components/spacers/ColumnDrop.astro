@@ -2,17 +2,9 @@
 import {
 	checkIsCSSLength,
 	getSizeValue,
-	CSSLength,
-	SizeOptions,
 } from '../../index.ts'
-import Spacer, { SpacerProps } from '../Spacer.astro'
-
-export type Basis = CSSLength | number | SizeOptions
-
-export interface ColumnDropProps extends SpacerProps {
-	basis?: Basis
-	noStretchedColumns?: boolean
-}
+import Spacer from '../Spacer.astro'
+import { Basis, ColumnDropProps } from '../types.ts'
 
 function getSafeBasis<T extends Record<string, unknown>>(
 	theme: T,
@@ -60,7 +52,7 @@ const safeBasis = getSafeBasis(theme, basis)
 		flex-grow: 1;
 		flex-shrink: 1;
 	}
-	[data-chisel-column-drop='no-stetched-columns'] > * {
+	[data-chisel-column-drop='no-stretched-columns'] > * {
 		flex-grow: 0;
 	}
 </style>
