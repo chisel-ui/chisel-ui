@@ -13,6 +13,7 @@ export type CSSSizeValue = number | CSSLength | SizeOptions
 export interface ComponentProps {
 	as?: string
 	theme?: BaseTheme
+	id?: string
 	class?: string
 	style?: string
 	[key: string]: any

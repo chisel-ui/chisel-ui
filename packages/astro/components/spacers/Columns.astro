@@ -24,9 +24,9 @@ const {
 	dense = false,
 	switchAt,
 	style,
+	id = uid(),
 	...props
 } = Astro.props as ColumnsProps
-const id = uid()
 
 const maybeColumns = columns || 1
 const maybeBreakpoint = getBreakpoint(switchAt)

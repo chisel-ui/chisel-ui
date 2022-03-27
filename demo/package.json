@@ -11,6 +11,7 @@
 	"devDependencies": {
 		"astro": "^0.25.2",
 		"astro-icon": "^0.6.1",
+		"astro-xelement": "^3.2.0",
 		"chisel-ui": "workspace:*"
 	}
 }

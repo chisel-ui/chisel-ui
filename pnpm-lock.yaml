@@ -22,10 +22,12 @@ importers:
     specifiers:
       astro: ^0.25.2
       astro-icon: ^0.6.1
+      astro-xelement: ^3.2.0
       chisel-ui: workspace:*
     devDependencies:
       astro: 0.25.2
       astro-icon: 0.6.1
+      astro-xelement: 3.2.0
       chisel-ui: link:../packages/astro
 
   packages/astro:
@@ -1364,6 +1366,10 @@ packages:
       node-fetch: 3.2.3
       resolve-pkg: 2.0.0
       svgo: 2.8.0
+    dev: true
+
+  /astro-xelement/3.2.0:
+    resolution: {integrity: sha512-uzy2z/Yaoz822qXppXawkomc074g3K0+0iGgqOEdwzlOJrj9ne4+BEVh6HWHo5fjEZHy7UcXk5IDGw+pfVaR2w==}
     dev: true
 
   /astro/0.24.3:

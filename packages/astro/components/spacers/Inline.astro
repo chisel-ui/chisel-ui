@@ -12,15 +12,13 @@ function shouldUseSwitch(switchAt?: CSSLength | number) {
 	return typeof switchAt === 'string'
 }
 
-const { stretch, switchAt, theme = {}, style = '', ...props } = Astro.props as InlineProps
+const { stretch, switchAt, theme = {}, id = uid(), style = '', ...props } = Astro.props as InlineProps
 
 const maybeSwitchAt = shouldUseSwitch(switchAt)
 	? typeof switchAt === 'string'
 		? switchAt
 		: `${switchAt}px`
 	: undefined
-
-const id = uid()
 
 const inlineStyle =
 	typeof stretch === 'number' &&

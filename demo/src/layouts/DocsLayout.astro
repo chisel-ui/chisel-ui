@@ -1,5 +1,5 @@
 ---
-import { AppBoundary, Stack } from 'chisel-ui'
+import { AppBoundary, PadBox, Stack } from 'chisel-ui'
 import { Sprite } from 'astro-icon'
 import 'chisel-ui/css/reset.css'
 import 'chisel-ui/css/opinionated.css'
@@ -52,8 +52,10 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
                     </Accordion>
                 </Stack>
 
-                <AppBoundary as="main" boundarySize="lg">
-                    <slot />
+                <AppBoundary as="main" slot="content" boundarySize="lg">
+                    <PadBox padding="md">
+                        <slot />
+                    </PadBox>
                 </AppBoundary>
             </SidebarLayout>
         </Sprite.Provider>
@@ -78,5 +80,19 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
         content: "*";
         color: red;
         font-weight: normal;
+    }
+
+    main :global(table th:last-child), main :global(table td:last-child) {
+        text-align: end;
+    }
+
+    @media (max-width: 640px) {
+        main :global(table) {
+            font-size: var(--chisel-h6);
+        }
+
+        main :global(table td), main :global(table th) {
+            padding: 1.2rem 0.25rem;
+        }
     }
 </style>

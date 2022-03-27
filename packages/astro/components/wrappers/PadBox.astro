@@ -87,12 +87,9 @@ function paddingToString(theme: BaseTheme, padding: PaddingTypes) {
             .join(" ")};`
 }
 
-const { theme = {}, padding, ...props } = Astro.props as PadBoxProps
+const { theme = {}, id = uid(), padding, ...props } = Astro.props as PadBoxProps
 
 const maybePadding = paddingToString(theme, padding)
-
-const id = uid()
-
 const inlineStyle = maybePadding && `
     #${id} {
         ${maybePadding}

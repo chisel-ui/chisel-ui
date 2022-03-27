@@ -1,8 +1,61 @@
 ---
-import { Split } from 'chisel-ui'
+import XElement from 'astro-xelement'
+import { Inline, PadBox, Split, uid } from 'chisel-ui'
+
+const id = uid()
+
+const inlineStyle = `
+    @media (max-width: 639px) {
+        #${id}:not([open]) [slot="sidebar"] {
+            display: none;
+        }
+
+        #${id}[open] [slot="content"] {
+            display: none;
+        }
+    }
+`
+
+function toggle(event) {
+    event.stopPropagation()
+    const split = event.target.closest('[data-chisel-split]')
+    split.hasAttribute('open') ? split.removeAttribute('open') : split.setAttribute('open', '')
+}
 ---
 
-<Split fraction='auto-start'>
+<Split {id} fraction='auto-start' switchAt='sm'>
+    <PadBox padding={{ left: 'sm', right: 'sm' }}>
+        <Inline as='header' align='center' style='--justify: space-between;'>
+            <a href='/'>
+                <span class='sr-only'>Go to homepage</span>
+                <img src="/icon.svg" aria-hidden="true" height="32" width="32" />
+            </a>
+            <XElement.button @click={toggle}>☰</XElement.button>
+        </Inline>
+    </PadBox>
+
     <slot name='sidebar' />
-    <slot />
+    <slot name='content' />
 </Split>
+
+<style set:html={inlineStyle}></style>
+
+<style>
+
+    [data-chisel-split] :global(button) {
+        background-color: transparent;
+        color: var(--chisel-primary);
+        border-color: transparent;
+        font-size: var(--chisel-h5);
+    }
+
+    header :global(button) {
+        padding-right: 0;
+    }
+
+    @media (min-width: 640px) {
+        header {
+            display: none;
+        }
+    }
+</style>
