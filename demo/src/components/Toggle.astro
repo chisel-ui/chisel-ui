@@ -1,0 +1,19 @@
+---
+import XElement from 'astro-xelement'
+
+const { as = 'button', attr = 'active', targetId, ...props } = Astro.props
+
+const toggle = (event) => {
+    const target =
+        (targetId && document.getElementById(targetId))
+        || event.target
+        
+    target.hasAttribute(attr)
+        ? target.removeAttribute(attr)
+        : target.setAttribute(attr, '')
+}
+---
+
+<XElement @is={as} define:vars={{attr, targetId}} @click:useCapture={toggle} {...props}>
+    <slot />
+</XElement>

@@ -1,26 +1,21 @@
 ---
-import XElement from 'astro-xelement'
 import { Inline, PadBox, Split, uid } from 'chisel-ui'
+import Button from './Button.astro'
+import Toggle from './Toggle.astro'
 
 const id = uid()
 
 const inlineStyle = `
     @media (max-width: 639px) {
-        #${id}:not([open]) [slot="sidebar"] {
+        #${id}:not([active]) [slot="sidebar"] {
             display: none;
         }
 
-        #${id}[open] [slot="content"] {
+        #${id}[active] [slot="content"] {
             display: none;
         }
     }
 `
-
-function toggle(event) {
-    event.stopPropagation()
-    const split = event.target.closest('[data-chisel-split]')
-    split.hasAttribute('open') ? split.removeAttribute('open') : split.setAttribute('open', '')
-}
 ---
 
 <Split {id} fraction='auto-start' switchAt='sm'>
@@ -30,7 +25,7 @@ function toggle(event) {
                 <span class='sr-only'>Go to homepage</span>
                 <img src="/icon.svg" aria-hidden="true" height="32" width="32" />
             </a>
-            <XElement.button @click={toggle}>☰</XElement.button>
+            <Button as={Toggle} targetId={id} hollow>☰</Button>
         </Inline>
     </PadBox>
 
@@ -41,14 +36,6 @@ function toggle(event) {
 <style set:html={inlineStyle}></style>
 
 <style>
-
-    [data-chisel-split] :global(button) {
-        background-color: transparent;
-        color: var(--chisel-primary);
-        border-color: transparent;
-        font-size: var(--chisel-h5);
-    }
-
     header :global(button) {
         padding-right: 0;
     }
