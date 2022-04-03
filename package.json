@@ -1,6 +1,6 @@
 {
-	"name": "@chisel-ui/chisel-ui",
-	"version": "0.3.0",
+	"name": "@example/component",
+	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "astro --project-root demo dev",
@@ -9,11 +9,10 @@
 		"lint": "prettier \"**/*.{js,ts,astro,md,json}\" --write"
 	},
 	"devDependencies": {
-		"@changesets/changelog-github": "^0.4.3",
-		"@changesets/cli": "^2.21.1",
-		"astro": "^0.24.3",
-		"prettier": "^2.6.0",
-		"prettier-plugin-astro": "^0.0.12",
-		"xo": "^0.48.0"
+		"@changesets/changelog-github": "^0.4.4",
+		"@changesets/cli": "^2.22.0",
+		"astro": "^0.25.4",
+		"prettier": "^2.6.2",
+		"prettier-plugin-astro": "^0.0.12"
 	}
 }

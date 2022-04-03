@@ -1,0 +1,35 @@
+---
+import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { GridProps } from './types.ts'
+
+const {
+	theme = {},
+	minItemWidth = 'sm',
+	style = '',
+	...props
+} = Astro.props as GridProps
+
+const safeMinItemWidth = getBreakpointValue(theme, minItemWidth)
+
+const componentStyle = joinStyles(
+	`--min-item-width: ${safeMinItemWidth}`,
+	style
+)
+---
+
+<Layout data-chisel-grid style={componentStyle} {theme} {...props}>
+	<slot />
+</Layout>
+
+<style global>
+	[data-chisel-grid] {
+		box-sizing: border-box;
+		display: grid;
+		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(min(var(--min-item-width, 639px), 100%), 1fr)
+		);
+	}
+</style>

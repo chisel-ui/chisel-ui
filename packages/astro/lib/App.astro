@@ -1,0 +1,40 @@
+---
+import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { AppProps } from './types.ts'
+
+const {
+	theme = {},
+	maxWidth = 'xl',
+	style = '',
+	...props
+} = Astro.props as AppProps
+
+const safeMaxWidth = getBreakpointValue(theme, maxWidth)
+
+const componentStyle = joinStyles(`--max-width: ${safeMaxWidth}`, style)
+---
+
+<Layout data-chisel-app style={componentStyle} {theme} {...props}>
+	<slot />
+</Layout>
+
+<style global>
+	[data-chisel-app] {
+		display: grid;
+		grid-template-columns: 1fr min(
+				var(--max-width, 1280px),
+				calc(100% - (2 * var(--gap-inline, 0px)))
+			) 1fr;
+		gap: var(--gap-block, 0px) 0px;
+	}
+
+	[data-chisel-app] > * {
+		grid-column: 2;
+	}
+
+	[data-chisel-app] > [data-chisel-cover] {
+		width: 100%;
+		grid-column: 1 / -1;
+	}
+</style>

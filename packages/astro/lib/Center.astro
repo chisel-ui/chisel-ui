@@ -1,0 +1,49 @@
+---
+import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { CenterProps } from './types.ts'
+
+const {
+	theme = {},
+	maxWidth = '100%',
+	centerText = false,
+	centerContent = false,
+	style = '',
+	...props
+} = Astro.props as CenterProps
+
+const safeMaxWidth = getBreakpointValue(theme, maxWidth)
+
+const attrValue = [centerText && 'text', centerContent && 'content']
+	.filter(Boolean)
+	.join(' ')
+
+const componentStyle = joinStyles(`--max-width: ${safeMaxWidth}`, style)
+---
+
+<Component
+	data-chisel-center={attrValue}
+	style={componentStyle}
+	{theme}
+	{...props}
+>
+	<slot />
+</Component>
+
+<style global>
+	[data-chisel-center] {
+		box-sizing: content-box;
+		margin-inline-start: auto;
+		margin-inline-end: auto;
+		margin-inline: auto;
+		max-inline-size: var(--max-width, 100%);
+	}
+	[data-chisel-center~='content'] {
+		display: flex;
+		flex-direction: center;
+		align-items: center;
+	}
+	[data-chisel-center~='text'] {
+		text-align: center;
+	}
+</style>

@@ -1,0 +1,72 @@
+---
+import { joinStyles } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { FrameProps } from './types.ts'
+
+const FRACTION_PATTERN = /(?:[1-9][0-9]*|0).?\/.?[1-9][0-9]*/g
+
+function getRatio(value?: typeof FrameProps['ratio']) {
+	if (value.match(FRACTION_PATTERN)) {
+		const [start, end] = value.split('/')
+		return `${start.trim()}/${end.trim()}`
+	} else if (Array.isArray(value)) {
+		const [start, end] = value
+		return `${start}/${end}`
+	}
+
+	return undefined
+}
+
+const { ratio, position, style = '', ...props } = Astro.props as FrameProps
+
+const safeRatio = getRatio(ratio)
+
+const componentStyle = joinStyles(
+	safeRatio && `--ratio: ${safeRatio}`,
+	position && `--position: ${position}`,
+	style
+)
+---
+
+<Component data-chisel-frame style={componentStyle} {...props}>
+	<slot />
+</Component>
+
+<style global>
+	[data-chisel-frame] {
+		box-sizing: border-box;
+		display: block;
+		inline-size: 100%;
+		position: relative;
+		overflow: hidden;
+	}
+
+	[data-chisel-frame][style*='--ratio'] {
+		aspect-ratio: var(--ratio);
+	}
+
+	[data-chisel-frame] > * {
+		position: absolute;
+
+		inset-block-start: 0;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+
+		inset-block: 0;
+		inset-inline: 0;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	[data-chisel-frame] > :is(img, video) {
+		inline-size: 100%;
+		block-size: 100%;
+		size: 100%;
+
+		object-fit: cover;
+		object-position: var(--position, 50%);
+	}
+</style>

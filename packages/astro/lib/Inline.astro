@@ -1,0 +1,58 @@
+---
+import { getBreakpointValue, joinStyles, uid } from '@chisel-ui/core'
+import InlineCluster from './InlineCluster.astro'
+import type { InlineProps, Stretch } from './types.ts'
+
+function getStretchSelector(stretch?: Stretch) {
+    if (stretch === 'all') {
+        return '*'
+    } else if (stretch === 'start') {
+        return ':first-child'
+    } else if (stretch === 'end') {
+        return ':last-child'
+    } else if (typeof stretch === 'number') {
+        return `:nth-child(${stretch})`
+    }
+
+    return undefined
+}
+
+const { theme = {}, id = uid(), stretch, switchAt = '0px', style = '', ...props } = Astro.props as InlineProps
+
+const safeSwitchAt = getBreakpointValue(theme, switchAt)
+const safeStretch = getStretchSelector(stretch)
+
+const inlineStyle = safeStretch && `
+    #${id} > ${safeStretch} {
+        flex: 1;
+    }
+`
+
+const componentStyle = joinStyles(
+    safeSwitchAt && `--switch-at: ${safeSwitchAt}`,
+    style
+)
+---
+
+<InlineCluster data-chisel-inline {id} style={componentStyle} {theme} {...props}>
+    <slot />
+</InlineCluster>
+
+{inlineStyle && (
+    <style set:html={inlineStyle}></style>
+)}
+
+<style global>
+    [data-chisel-inline] {
+        flex-wrap: nowrap;
+    }
+
+    [data-chisel-inline][style*="--switch-at"] {
+        flex-wrap: wrap;
+    }
+
+    [data-chisel-inline][style*='--switch-at'] > * {
+		min-inline-size: fit-content;
+		flex-basis: calc((var(--switch-at) - (100% - var(--gap-inline, 0px))) * 999);
+	}
+</style>

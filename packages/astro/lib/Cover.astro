@@ -1,0 +1,54 @@
+---
+import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { CoverProps } from './types.ts'
+
+const { theme = {}, minHeight = '100vh', stretchContent = false, style = '', ...props } = Astro.props as CoverProps
+
+const safeMinHeight = getBreakpointValue(theme, minHeight)
+
+const componentStyle = joinStyles(
+    `--min-height: ${safeMinHeight}`,
+    style
+)
+---
+
+<Layout data-chisel-cover={stretchContent ? 'stretch' : ''} style={componentStyle} {theme} {...props}>
+    {Astro.slots.top && (
+        <div data-chisel-cover-top>
+            <slot name="top" />
+        </div>
+    )}
+    <div data-chisel-cover-centered>
+        <slot />
+    </div>
+    {Astro.slots.bottom && (
+        <div data-chisel-cover-bottom>
+            <slot name="bottom" />
+        </div>
+    )}
+</Layout>
+
+<style global>
+    [data-chisel-cover] {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+        min-block-size: var(--min-height, 100vh);
+    }
+
+    [data-chisel-cover-centered] {
+        margin-block-start: auto;
+        margin-block-end: auto;
+    }
+
+    [data-chisel-cover="stretch"] [data-chisel-cover-centered] {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    [data-chisel-cover="stretch"] [data-chisel-cover-centered] > * {
+        flex: 1;
+    }
+</style>

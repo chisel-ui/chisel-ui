@@ -1,5 +1,6 @@
 ---
-import { Inline, PadBox, Split, uid } from 'chisel-ui'
+import { Inline, PadBox, Split } from '@chisel-ui/astro'
+import { uid } from '@chisel-ui/core'
 import Button from './Button.astro'
 import Toggle from './Toggle.astro'
 
@@ -18,31 +19,31 @@ const inlineStyle = `
 `
 ---
 
-<Split {id} fraction='auto-start' switchAt='sm'>
-    <PadBox padding={{ left: 'sm', right: 'sm' }}>
-        <Inline as='header' align='center' style='--justify: space-between;'>
-            <a href='/'>
-                <span class='sr-only'>Go to homepage</span>
-                <img src="/icon.svg" aria-hidden="true" height="32" width="32" />
-            </a>
-            <Button as={Toggle} targetId={id} hollow>☰</Button>
-        </Inline>
-    </PadBox>
+<Split {id} fraction="auto-start" switchAt="sm">
+	<PadBox as="header" padding={{ left: 'sm', right: 'sm' }}>
+		<Inline align="center" justify="between">
+			<a href="/">
+				<span class="sr-only">Go to homepage</span>
+				<img src="/icon.svg" aria-hidden="true" height="32" width="32" />
+			</a>
+			<Button as={Toggle} targetId={id} hollow>☰</Button>
+		</Inline>
+	</PadBox>
 
-    <slot name='sidebar' />
-    <slot name='content' />
+	<slot name="sidebar" />
+	<slot name="content" />
 </Split>
 
-<style set:html={inlineStyle}></style>
+<style set:html={inlineStyle}>
 
-<style>
-    header :global(button) {
-        padding-right: 0;
-    }
+</style><style>
+	header :global(button) {
+		padding-right: 0;
+	}
 
-    @media (min-width: 640px) {
-        header {
-            display: none;
-        }
-    }
+	@media (min-width: 640px) {
+		header {
+			display: none;
+		}
+	}
 </style>

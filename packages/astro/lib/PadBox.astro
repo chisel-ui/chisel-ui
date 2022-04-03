@@ -1,0 +1,122 @@
+---
+import { defaultGaps, getGapValue, isCssLength, uid } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { Gap, Theme } from '@chisel-ui/core'
+import type { PadBoxProps, PaddingObject } from './types.ts'
+
+function keyToProperty<T extends Theme>(key: keyof PaddingObject<T>) {
+    switch (key) {
+        case 'left':
+        case 'inlineStart':
+            return 'padding-inline-start'
+        case 'right':
+        case 'inlineEnd':
+            return 'padding-inline-end'
+        case 'top':
+        case 'blockStart':
+            return 'padding-block-start'
+        case 'bottom':
+        case 'blockEnd':
+            return 'padding-block-end'
+        default:
+            return undefined
+    }
+}
+
+function isValidPadding<T extends Theme>(theme: T, padding: PadBoxProps['padding']) {
+    const gaps = theme.gaps ?? defaultGaps
+
+    if (typeof padding === 'number') {
+        return padding >= 0
+    } else if (typeof padding === 'string') {
+        return padding in gaps || isCssLength(padding)
+    } else if (Array.isArray(padding)) {
+        return padding.length > 0 && padding.length < 5
+    } else if (typeof padding === 'object') {
+        return Object.entries(padding).every(([key, value]) => {
+            return !!keyToProperty(key) && isValidPadding(theme, value)
+        })
+    }
+
+    return false
+}
+
+function getPaddingValue<T extends Theme>(theme: T, value: Gap<T['gaps']>) {
+    if (typeof value === 'number') {
+        return `${value}px`
+    } else if (typeof value === 'string' && isCssLength(value)) {
+        return value
+    } else {
+        return getGapValue(theme, value)
+    }
+}
+
+function paddingToString<T extends Theme>(theme: T, padding: PadBoxProps['padding']) {
+    if (Array.isArray(padding) && padding.length > 4) {
+        throw new Error(`padding arrays can't be longer than 4, found ${padding.length}`)
+    }
+
+    if (!isValidPadding<T>(theme, padding)) {
+        throw new Error(`Invalid padding type - ${padding}`)
+    }
+
+    if (Array.isArray(padding)) {
+        if (padding.length === 1) {
+            return `padding: ${getPaddingValue(theme, padding[0])};`
+        } else if (padding.length === 2) {
+            const [block, inline] = padding
+            return [
+                `padding-inline: ${getPaddingValue(theme, inline)}`,
+                `padding-block: ${getPaddingValue(theme, block)};`
+            ].join(';')
+        } else if (padding.length === 3) {
+            const [blockStart, inline, blockEnd] = padding
+            return [
+                `padding-block-start: ${getPaddingValue(theme, blockStart)}`,
+                `padding-inline: ${getPaddingValue(theme, inline)}`,
+                `padding-block-end: ${getPaddingValue(theme, blockEnd)};`
+            ].join(';')
+        } else {
+            const [blockStart, inlineEnd, blockEnd, inlineStart] = padding
+            return [
+                `padding-block-start: ${getPaddingValue(theme, blockStart)}`,
+                `padding-inline-end: ${getPaddingValue(theme, inlineEnd)}`,
+                `padding-block-end: ${getPaddingValue(theme, blockEnd)}`,
+                `padding-inline-start: ${getPaddingValue(theme, inlineStart)};`
+            ].join(';')
+        }
+    } else if (typeof padding === 'object') {
+        const array = Object.entries(padding).map(([key, value]) => {
+            return `${keyToProperty(key)}: ${getGapValue(theme, value as Gap<T['gaps']>)};`
+        })
+        
+        return array.join(' ');
+    } else {
+        return `padding: ${getPaddingValue(theme, padding)};`
+    }
+}
+
+const { theme = {}, id = uid(), padding, ...props } = Astro.props as PadBoxProps
+
+const safePadding = paddingToString(theme, padding)
+
+const inlineStyle = safePadding && `
+    #${id} {
+        ${safePadding}
+    }
+`
+---
+
+<Component data-chisel-padbox {id} {theme} {...props}>
+    <slot />
+</Component>
+
+{inlineStyle && (
+    <style set:html={inlineStyle}></style>
+)}
+
+<style global>
+    [data-chisel-padbox] {
+        box-sizing: border-box;
+    }
+</style>

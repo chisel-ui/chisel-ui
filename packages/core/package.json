@@ -1,13 +1,16 @@
 {
-	"name": "@chisel-ui/astro",
+	"name": "@chisel-ui/core",
 	"version": "0.3.0",
 	"private": true,
 	"type": "module",
 	"exports": {
-		".": "./index.ts"
+		".": "./index.ts",
+		"./reset.css": "./css/reset.css",
+		"./opinionated.css": "./css/opinionated.css"
 	},
 	"files": [
 		"index.ts",
+		"css",
 		"lib"
 	],
 	"keywords": [
@@ -15,8 +18,5 @@
 		"button",
 		"heading",
 		"example"
-	],
-	"dependencies": {
-		"@chisel-ui/core": "workspace:*"
-	}
+	]
 }

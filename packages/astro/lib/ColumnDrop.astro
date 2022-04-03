@@ -1,0 +1,43 @@
+---
+import { joinStyles, getBreakpointValue } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { ColumnDropProps } from './types.ts'
+
+const {
+	theme = {},
+	basis = 'xs',
+	noStretchedColumns = false,
+	style = '',
+	...props
+} = Astro.props as ColumnDropProps
+
+const safeBasis = getBreakpointValue(theme, basis)
+
+const componentStyle = joinStyles(`--basis: ${safeBasis}`, style)
+---
+
+<Layout
+	data-chisel-column-drop={noStretchedColumns ? 'no-stretched-columns' : ''}
+	style={componentStyle}
+	{theme}
+	{...props}
+>
+	<slot />
+</Layout>
+
+<style global>
+	[data-chisel-column-drop] {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+	}
+	[data-chisel-column-drop] > * {
+		flex-basis: var(--basis, 360px);
+		flex-grow: 1;
+		flex-shrink: 1;
+	}
+	[data-chisel-column-drop='no-stretched-columns'] > * {
+		flex-grow: 0;
+	}
+</style>

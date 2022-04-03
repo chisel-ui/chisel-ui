@@ -1,37 +1,43 @@
 ---
 import { Sprite } from 'astro-icon'
-import { Inline } from 'chisel-ui'
+import { Inline } from '@chisel-ui/astro'
 interface Props {
-    open?: boolean
+	open?: boolean
 }
 
 const { open } = Astro.props as Props
 ---
 
 <details {open}>
-    <Inline as="summary" gutter="xs" align="center">
-        <Sprite pack="heroicons-outline" name="chevron-down" size={18} color="var(--chisel-neutral-400)" />
-        <slot name="summary" />
-    </Inline>
+	<Inline as="summary" gap="xs" align="center">
+		<Sprite
+			pack="heroicons-outline"
+			name="chevron-down"
+			size={18}
+			color="var(--chisel-neutral-400)"
+		/>
+		<slot name="summary" />
+	</Inline>
 
-    <slot />
+	<slot />
 </details>
 
 <style>
-    summary {
-        list-style-type: none;
-    }
+	summary {
+		list-style-type: none;
+	}
 
-    ::-webkit-details-marker, ::marker {
-        display: none;
-    }
+	::-webkit-details-marker,
+	::marker {
+		display: none;
+	}
 
-    summary :global(svg) {
-        transition: transform 150ms ease;
-        will-change: transform;
-    }
+	summary :global(svg) {
+		transition: transform 150ms ease;
+		will-change: transform;
+	}
 
-    details[open] summary :global(svg) {
-        transform: rotate(180deg);
-    }
+	details[open] summary :global(svg) {
+		transform: rotate(180deg);
+	}
 </style>

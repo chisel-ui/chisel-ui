@@ -1,10 +1,22 @@
 ---
-import { Center, Frame } from 'chisel-ui'
+import { Center, Frame } from '@chisel-ui/astro'
 import Layout from '../layouts/DocsLayout.astro'
 ---
 
 <Layout>
-    <Frame as={Center} ratio="16/9" maxWidth="lg">
-        <img src="/banner.svg" alt="computer with data" />
-    </Frame>
+	<Frame as={Center} ratio="16/9" maxWidth="lg">
+		<img src="/banner.svg" alt="computer with data" />
+	</Frame>
+
+	<section>
+		<Center as="h1" centerText>🚧 WIP | chisel-ui</Center>
+	</section>
+
+	<section>
+		<strong>This is still experimental!</strong>
+		<p>
+			Heavily inspired by [Bedrock Layout](https://bedrock-layout.dev), the goal
+			is to provide composable, headless layout components.
+		</p>
+	</section>
 </Layout>

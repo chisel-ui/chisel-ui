@@ -1,0 +1,40 @@
+---
+import { getGapValue, joinStyles } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { LayoutProps } from './types.ts'
+
+const {
+	gap = '0px',
+	inlineGap,
+	blockGap,
+	theme = {},
+	style = '',
+	...props
+} = Astro.props as LayoutProps
+
+const safeInlineGap = getGapValue(theme, inlineGap ?? gap)
+const safeBlockGap = getGapValue(theme, blockGap ?? gap)
+
+const componentStyles = joinStyles(
+	safeInlineGap && `--gap-inline: ${safeInlineGap}`,
+	safeBlockGap && `--gap-block: ${safeBlockGap}`,
+	style
+)
+---
+
+<Component style={componentStyles} {...props}>
+	<slot />
+</Component>
+
+<style global>
+	@property --gap-inline {
+		syntax: '<length-percentage>';
+		inherits: false;
+		initial-value: 0px;
+	}
+	@property --gap-block {
+		syntax: '<length-percentage>';
+		inherits: false;
+		initial-value: 0px;
+	}
+</style>

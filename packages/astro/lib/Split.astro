@@ -1,0 +1,54 @@
+---
+import { getBreakpointValue, uid } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { SplitProps } from './types.ts'
+
+const FRACTION_PATTERN = /(?:[1-9][0-9]*|0).?\/.?[1-9][0-9]*/g
+
+function getFraction(value: typeof SplitProps['fraction']) {
+	if (value.match(FRACTION_PATTERN)) {
+		const [start, end] = value.split('/')
+		return `${start.trim()}fr ${end.trim()}fr`
+	} else if (value === 'auto-start') {
+		return 'auto 1fr'
+	} else if (value === 'auto-end') {
+		return '1fr auto'
+	} else {
+		return '1fr 2fr'
+	}
+}
+
+const {
+	theme = {},
+	id = uid(),
+	fraction = '1/2',
+	switchAt = '0px',
+	...props
+} = Astro.props as SplitProps
+
+const safeFraction = getFraction(fraction)
+const safeBreakpoint = getBreakpointValue(theme, switchAt)
+
+const inlineStyle = `
+    @media (min-width: ${safeBreakpoint}) {
+        #${id} {
+            --columns: ${safeFraction};
+        }
+    }
+`
+---
+
+<Layout data-chisel-split {id} {theme} {...props}>
+	<slot />
+</Layout>
+
+<style set:html={inlineStyle}>
+
+</style><style global>
+	[data-chisel-split] {
+		box-sizing: border-box;
+		display: grid;
+		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+		grid-template-columns: var(--columns, 1fr);
+	}
+</style>

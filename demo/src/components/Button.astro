@@ -1,23 +1,25 @@
 ---
-const { as: Tag = 'button', hollow = false, class: className = '', ...props } = Astro.props
+const {
+	as: Tag = 'button',
+	hollow = false,
+	class: className = '',
+	...props
+} = Astro.props
 
-const componentClasses = [
-    className.split(' '),
-    hollow && 'hollow'
-]
-    .filter(Boolean)
-    .join(' ')
+const componentClasses = [className.split(' '), hollow && 'hollow']
+	.filter(Boolean)
+	.join(' ')
 ---
 
-<Tag type='button' class={componentClasses} {...props}>
-    <slot />
+<Tag type="button" class={componentClasses} {...props}>
+	<slot />
 </Tag>
 
 <style>
-    .hollow {
-        background-color: transparent;
-        color: var(--chisel-primary);
-        border-color: transparent;
-        font-size: var(--chisel-h5);
-    }
+	.hollow {
+		background-color: transparent;
+		color: var(--chisel-primary);
+		border-color: transparent;
+		font-size: var(--chisel-h5);
+	}
 </style>

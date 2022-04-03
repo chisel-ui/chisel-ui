@@ -1,0 +1,66 @@
+---
+import { joinStyles } from '@chisel-ui/core'
+import Layout from './Layout.astro'
+import type { Alignment, InlineClusterProps, Justification } from './types.ts'
+
+function getJustify(value: Justification) {
+	switch (value) {
+		case 'end':
+			return 'flex-end'
+		case 'center':
+			return 'center'
+		case 'between':
+			return 'space-between'
+		case 'around':
+			return 'space-around'
+		case 'start':
+		default:
+			return 'flex-start'
+	}
+}
+
+function getAlign(value: Alignment) {
+	switch (value) {
+		case 'end':
+			return 'flex-end'
+		case 'center':
+			return 'center'
+		case 'stretch':
+			return 'stretch'
+		case 'start':
+		default:
+			return 'flex-start'
+	}
+}
+
+const {
+	justify = 'start',
+	align = 'start',
+	style = '',
+	...props
+} = Astro.props as InlineClusterProps
+
+const safeJustify = getJustify(justify)
+const safeAlign = getAlign(align)
+
+const componentStyle = joinStyles(
+	`--justify: ${safeJustify}`,
+	`--align: ${safeAlign}`,
+	style
+)
+---
+
+<Layout data-chisel-inline-cluster style={componentStyle} {...props}>
+	<slot />
+</Layout>
+
+<style global>
+	[data-chisel-inline-cluster] {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+		justify-content: var(--justify, 'flex-start');
+		align-items: var(--align, 'flex-align');
+	}
+</style>
