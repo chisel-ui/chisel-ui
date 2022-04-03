@@ -35,7 +35,7 @@ const componentStyle = joinStyles(
 	<slot />
 </Component>
 
-<style global>
+<style is:global>
 	[data-chisel-columns] > [data-chisel-column] {
 		grid-column: span min(var(--span, 1), var(--columns, 1));
 	}

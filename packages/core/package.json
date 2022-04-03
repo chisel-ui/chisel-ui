@@ -13,9 +13,8 @@
 		"lib"
 	],
 	"keywords": [
-		"astro-component",
-		"button",
-		"heading",
-		"example"
+		"layout",
+		"primitives",
+		"reset"
 	]
 }

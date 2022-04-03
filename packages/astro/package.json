@@ -1,6 +1,6 @@
 {
 	"name": "@chisel-ui/astro",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"type": "module",
 	"exports": {
 		".": "./index.ts"
@@ -10,10 +10,10 @@
 		"lib"
 	],
 	"keywords": [
+		"withastro",
 		"astro-component",
-		"button",
-		"heading",
-		"example"
+		"layout",
+		"primitives"
 	],
 	"dependencies": {
 		"@chisel-ui/core": "workspace:*"

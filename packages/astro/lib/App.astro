@@ -19,7 +19,7 @@ const componentStyle = joinStyles(`--max-width: ${safeMaxWidth}`, style)
 	<slot />
 </Layout>
 
-<style global>
+<style is:global>
 	[data-chisel-app] {
 		display: grid;
 		grid-template-columns: 1fr min(
