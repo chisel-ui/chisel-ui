@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, uid } from '@chisel-ui/core'
+import './Columns.css'
 import Layout from './Layout.astro'
 import type { ColumnsProps } from './types.ts'
 
@@ -28,18 +29,4 @@ const inlineStyle = `
 	<slot />
 </Layout>
 
-<style set:html={inlineStyle}>
-
-</style><style is:global>
-	[data-chisel-columns] {
-		box-sizing: border-box;
-		display: grid;
-		grid-template-columns: repeat(var(--columns, 1), 1fr);
-		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-		grid-auto-flow: row;
-	}
-
-	[data-chisel-columns='dense'] {
-		grid-auto-flow: row dense;
-	}
-</style>
+<style set:html={inlineStyle}></style>

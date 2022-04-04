@@ -1,0 +1,6 @@
+[data-chisel-stack] {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gap-block, 0px);
+}

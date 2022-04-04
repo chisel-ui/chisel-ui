@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro'
+import './Stack.css'
 import type { StackProps } from './types.ts'
 
 const { ...props } = Astro.props as StackProps
@@ -9,11 +10,3 @@ const { ...props } = Astro.props as StackProps
 	<slot />
 </Layout>
 
-<style is:global>
-	[data-chisel-stack] {
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		row-gap: var(--gap-block, 0px);
-	}
-</style>

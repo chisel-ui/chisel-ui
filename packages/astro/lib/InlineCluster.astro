@@ -1,5 +1,6 @@
 ---
 import { joinStyles } from '@chisel-ui/core'
+import './InlineCluster.css'
 import Layout from './Layout.astro'
 import type { Alignment, InlineClusterProps, Justification } from './types.ts'
 
@@ -53,14 +54,3 @@ const componentStyle = joinStyles(
 <Layout data-chisel-inline-cluster style={componentStyle} {...props}>
 	<slot />
 </Layout>
-
-<style is:global>
-	[data-chisel-inline-cluster] {
-		box-sizing: border-box;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-		justify-content: var(--justify, 'flex-start');
-		align-items: var(--align, 'flex-align');
-	}
-</style>

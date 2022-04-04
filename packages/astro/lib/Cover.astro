@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import './Cover.css'
 import Layout from './Layout.astro'
 import type { CoverProps } from './types.ts'
 
@@ -28,27 +29,3 @@ const componentStyle = joinStyles(
         </div>
     )}
 </Layout>
-
-<style is:global>
-    [data-chisel-cover] {
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-        min-block-size: var(--min-height, 100vh);
-    }
-
-    [data-chisel-cover-centered] {
-        margin-block-start: auto;
-        margin-block-end: auto;
-    }
-
-    [data-chisel-cover="stretch"] [data-chisel-cover-centered] {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    [data-chisel-cover="stretch"] [data-chisel-cover-centered] > * {
-        flex: 1;
-    }
-</style>

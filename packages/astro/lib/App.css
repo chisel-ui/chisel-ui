@@ -1,0 +1,17 @@
+[data-chisel-app] {
+    display: grid;
+    grid-template-columns: 1fr min(
+            var(--max-width, 1280px),
+            calc(100% - (2 * var(--gap-inline, 0px)))
+        ) 1fr;
+    gap: var(--gap-block, 0px) 0px;
+}
+
+[data-chisel-app] > * {
+    grid-column: 2;
+}
+
+[data-chisel-app] > [data-chisel-cover] {
+    width: 100%;
+    grid-column: 1 / -1;
+}

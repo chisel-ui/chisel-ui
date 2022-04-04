@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, uid } from '@chisel-ui/core'
+import './Split.css'
 import Layout from './Layout.astro'
 import type { SplitProps } from './types.ts'
 
@@ -42,13 +43,5 @@ const inlineStyle = `
 	<slot />
 </Layout>
 
-<style set:html={inlineStyle}>
+<style set:html={inlineStyle}></style>
 
-</style><style is:global>
-	[data-chisel-split] {
-		box-sizing: border-box;
-		display: grid;
-		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-		grid-template-columns: var(--columns, 1fr);
-	}
-</style>

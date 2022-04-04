@@ -25,16 +25,3 @@ const componentStyles = joinStyles(
 <Component style={componentStyles} {...props}>
 	<slot />
 </Component>
-
-<style is:global>
-	@property --gap-inline {
-		syntax: '<length-percentage>';
-		inherits: false;
-		initial-value: 0px;
-	}
-	@property --gap-block {
-		syntax: '<length-percentage>';
-		inherits: false;
-		initial-value: 0px;
-	}
-</style>

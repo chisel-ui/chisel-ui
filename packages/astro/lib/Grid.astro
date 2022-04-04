@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import './Grid.css'
 import Layout from './Layout.astro'
 import type { GridProps } from './types.ts'
 
@@ -22,14 +23,3 @@ const componentStyle = joinStyles(
 	<slot />
 </Layout>
 
-<style is:global>
-	[data-chisel-grid] {
-		box-sizing: border-box;
-		display: grid;
-		gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-		grid-template-columns: repeat(
-			auto-fit,
-			minmax(min(var(--min-item-width, 639px), 100%), 1fr)
-		);
-	}
-</style>

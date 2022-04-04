@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import './Center.css'
 import Component from './Component.astro'
 import type { CenterProps } from './types.ts'
 
@@ -29,21 +30,3 @@ const componentStyle = joinStyles(`--max-width: ${safeMaxWidth}`, style)
 >
 	<slot />
 </Component>
-
-<style is:global>
-	[data-chisel-center] {
-		box-sizing: content-box;
-		margin-inline-start: auto;
-		margin-inline-end: auto;
-		margin-inline: auto;
-		max-inline-size: var(--max-width, 100%);
-	}
-	[data-chisel-center~='content'] {
-		display: flex;
-		flex-direction: center;
-		align-items: center;
-	}
-	[data-chisel-center~='text'] {
-		text-align: center;
-	}
-</style>

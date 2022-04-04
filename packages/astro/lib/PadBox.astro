@@ -1,5 +1,6 @@
 ---
 import { defaultGaps, getGapValue, isCssLength, uid } from '@chisel-ui/core'
+import './PadBox.css'
 import Component from './Component.astro'
 import type { Gap, Theme } from '@chisel-ui/core'
 import type { PadBoxProps, PaddingObject } from './types.ts'
@@ -114,9 +115,3 @@ const inlineStyle = safePadding && `
 {inlineStyle && (
     <style set:html={inlineStyle}></style>
 )}
-
-<style is:global>
-    [data-chisel-padbox] {
-        box-sizing: border-box;
-    }
-</style>

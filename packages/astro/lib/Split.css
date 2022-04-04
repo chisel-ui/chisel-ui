@@ -1,0 +1,6 @@
+[data-chisel-split] {
+    box-sizing: border-box;
+    display: grid;
+    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+    grid-template-columns: var(--columns, 1fr);
+}

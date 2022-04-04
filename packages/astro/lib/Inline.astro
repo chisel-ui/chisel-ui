@@ -1,5 +1,6 @@
 ---
 import { getBreakpointValue, joinStyles, uid } from '@chisel-ui/core'
+import './Inline.css'
 import InlineCluster from './InlineCluster.astro'
 import type { InlineProps, Stretch } from './types.ts'
 
@@ -41,18 +42,3 @@ const componentStyle = joinStyles(
 {inlineStyle && (
     <style set:html={inlineStyle}></style>
 )}
-
-<style is:global>
-    [data-chisel-inline] {
-        flex-wrap: nowrap;
-    }
-
-    [data-chisel-inline][style*="--switch-at"] {
-        flex-wrap: wrap;
-    }
-
-    [data-chisel-inline][style*='--switch-at'] > * {
-		min-inline-size: fit-content;
-		flex-basis: calc((var(--switch-at) - (100% - var(--gap-inline, 0px))) * 999);
-	}
-</style>
