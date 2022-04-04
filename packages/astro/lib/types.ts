@@ -61,6 +61,8 @@ export interface ColumnProps<T extends Theme> extends LayoutProps<T> {
 }
 
 export interface CenterProps<T extends Theme> extends ComponentProps<T> {
+	inline?: boolean
+	block?: boolean
 	maxWidth?: Breakpoint<T['breakpoints']>
 	centerText?: boolean
 	centerContent?: boolean

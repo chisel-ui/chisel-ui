@@ -4,7 +4,7 @@ import './Cover.css'
 import Layout from './Layout.astro'
 import type { CoverProps } from './types.ts'
 
-const { theme = {}, minHeight = '100vh', stretchContent = false, style = '', ...props } = Astro.props as CoverProps
+const { theme = {}, minHeight = 'fit-content', stretchContent = false, style = '', ...props } = Astro.props as CoverProps
 
 const safeMinHeight = getBreakpointValue(theme, minHeight)
 
