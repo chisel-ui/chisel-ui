@@ -6,6 +6,8 @@ import type { CenterProps } from './types.ts'
 
 const {
 	theme = {},
+	inline = true,
+	block = false,
 	maxWidth = '100%',
 	centerText = false,
 	centerContent = false,
@@ -15,7 +17,12 @@ const {
 
 const safeMaxWidth = getBreakpointValue(theme, maxWidth)
 
-const attrValue = [centerText && 'text', centerContent && 'content']
+const attrValue = [
+	inline && 'inline',
+	block && 'block',
+	centerText && 'text',
+	centerContent && 'content'
+]
 	.filter(Boolean)
 	.join(' ')
 
