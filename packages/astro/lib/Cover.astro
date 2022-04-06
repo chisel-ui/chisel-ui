@@ -2,9 +2,15 @@
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
 import './Cover.css'
 import Layout from './Layout.astro'
-import type { CoverProps } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
 
-const { theme = {}, minHeight = 'fit-content', stretchContent = false, style = '', ...props } = Astro.props as CoverProps
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	minHeight?: Breakpoint<T['breakpoints']>
+	stretchContent?: boolean
+}
+
+const { theme = {}, minHeight = 'fit-content', stretchContent = false, style = '', ...props } = Astro.props as Props
 
 const safeMinHeight = getBreakpointValue(theme, minHeight)
 

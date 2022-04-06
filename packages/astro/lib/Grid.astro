@@ -2,14 +2,18 @@
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
 import './Grid.css'
 import Layout from './Layout.astro'
-import type { GridProps } from './types.ts'
+import type { Breakpoint, CSSLength, Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	minItemWidth?: number | CSSLength | Breakpoint<T['breakpoints']>
+}
 
 const {
 	theme = {},
 	minItemWidth = 'sm',
 	style = '',
 	...props
-} = Astro.props as GridProps
+} = Astro.props as Props
 
 const safeMinItemWidth = getBreakpointValue(theme, minItemWidth)
 

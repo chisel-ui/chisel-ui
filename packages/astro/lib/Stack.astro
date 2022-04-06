@@ -1,9 +1,12 @@
 ---
 import Layout from './Layout.astro'
 import './Stack.css'
-import type { StackProps } from './types.ts'
+import type { Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
 
-const { ...props } = Astro.props as StackProps
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> { }
+
+const { ...props } = Astro.props as Props
 ---
 
 <Layout data-chisel-stack {...props}>

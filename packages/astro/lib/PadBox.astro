@@ -3,7 +3,30 @@ import { defaultGaps, getGapValue, isCssLength, uid } from '@chisel-ui/core'
 import './PadBox.css'
 import Component from './Component.astro'
 import type { Gap, Theme } from '@chisel-ui/core'
-import type { PadBoxProps, PaddingObject } from './types.ts'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface PaddingObject<T extends Theme = Theme> {
+	left?: Gap<T['gaps']>
+	right?: Gap<T['gaps']>
+	top?: Gap<T['gaps']>
+	bottom?: Gap<T['gaps']>
+	inlineStart?: Gap<T['gaps']>
+	inlineEnd?: Gap<T['gaps']>
+	blockStart?: Gap<T['gaps']>
+	blockEnd?: Gap<T['gaps']>
+}
+
+export type Padding<T extends Theme = Theme> =
+	| Gap<T['gaps']>
+	| Partial<PaddingObject<T>>
+	| [Gap<T['gaps']>]
+	| [Gap<T['gaps']>, Gap<T['gaps']>]
+	| [Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>]
+	| [Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>]
+
+export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+	padding?: Padding<T>
+}
 
 function keyToProperty<T extends Theme>(key: keyof PaddingObject<T>) {
     switch (key) {
@@ -24,7 +47,7 @@ function keyToProperty<T extends Theme>(key: keyof PaddingObject<T>) {
     }
 }
 
-function isValidPadding<T extends Theme>(theme: T, padding: PadBoxProps['padding']) {
+function isValidPadding<T extends Theme>(theme: T, padding: Props['padding']) {
     const gaps = theme.gaps ?? defaultGaps
 
     if (typeof padding === 'number') {
@@ -52,7 +75,7 @@ function getPaddingValue<T extends Theme>(theme: T, value: Gap<T['gaps']>) {
     }
 }
 
-function paddingToString<T extends Theme>(theme: T, padding: PadBoxProps['padding']) {
+function paddingToString<T extends Theme>(theme: T, padding: Props['padding']) {
     if (Array.isArray(padding) && padding.length > 4) {
         throw new Error(`padding arrays can't be longer than 4, found ${padding.length}`)
     }
@@ -97,7 +120,7 @@ function paddingToString<T extends Theme>(theme: T, padding: PadBoxProps['paddin
     }
 }
 
-const { theme = {}, id = uid(), padding, ...props } = Astro.props as PadBoxProps
+const { theme = {}, id = uid(), padding, ...props } = Astro.props as Props
 
 const safePadding = paddingToString(theme, padding)
 

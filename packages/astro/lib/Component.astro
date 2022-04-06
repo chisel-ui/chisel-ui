@@ -1,7 +1,16 @@
 ---
-import type { ComponentProps } from './types.ts'
+import type { Theme } from '@chisel-ui/core'
 
-const { as: Tag = 'div', theme, ...props } = Astro.props as ComponentProps
+export interface Props<T extends Theme = Theme> {
+	as?: string
+	theme?: T
+	id?: string
+	class?: string
+	style?: string
+	[key: string]: any
+}
+
+const { as: Tag = 'div', theme, ...props } = Astro.props as Props
 ---
 
 <Tag {...props}>

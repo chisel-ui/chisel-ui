@@ -2,7 +2,16 @@
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
 import './Center.css'
 import Component from './Component.astro'
-import type { CenterProps } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+	inline?: boolean
+	block?: boolean
+	maxWidth?: Breakpoint<T['breakpoints']>
+	centerText?: boolean
+	centerContent?: boolean
+}
 
 const {
 	theme = {},
@@ -13,7 +22,7 @@ const {
 	centerContent = false,
 	style = '',
 	...props
-} = Astro.props as CenterProps
+} = Astro.props as Props
 
 const safeMaxWidth = getBreakpointValue(theme, maxWidth)
 

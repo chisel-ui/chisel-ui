@@ -2,7 +2,13 @@
 import { joinStyles, getBreakpointValue } from '@chisel-ui/core'
 import './ColumnDrop.css'
 import Layout from './Layout.astro'
-import type { ColumnDropProps } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	basis?: Breakpoint<T['breakpoints']>
+	noStretchedColumns?: boolean
+}
 
 const {
 	theme = {},
@@ -10,7 +16,7 @@ const {
 	noStretchedColumns = false,
 	style = '',
 	...props
-} = Astro.props as ColumnDropProps
+} = Astro.props as Props
 
 const safeBasis = getBreakpointValue(theme, basis)
 

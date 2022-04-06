@@ -2,7 +2,15 @@
 import { getBreakpointValue, joinStyles, uid } from '@chisel-ui/core'
 import './Inline.css'
 import InlineCluster from './InlineCluster.astro'
-import type { InlineProps, Stretch } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as InlineClusterProps } from './InlineCluster.astro'
+
+type Stretch = 'all' | 'start' | 'end' | number
+
+export interface Props<T extends Theme = Theme> extends InlineClusterProps<T> {
+	stretch?: Stretch
+	switchAt?: Breakpoint<T['breakpoints']>
+}
 
 function getStretchSelector(stretch?: Stretch) {
     if (stretch === 'all') {
@@ -18,7 +26,7 @@ function getStretchSelector(stretch?: Stretch) {
     return undefined
 }
 
-const { theme = {}, id = uid(), stretch, switchAt = '0px', style = '', ...props } = Astro.props as InlineProps
+const { theme = {}, id = uid(), stretch, switchAt = '0px', style = '', ...props } = Astro.props as Props
 
 const safeSwitchAt = getBreakpointValue(theme, switchAt)
 const safeStretch = getStretchSelector(stretch)

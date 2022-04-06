@@ -1,7 +1,14 @@
 ---
 import { getGapValue, joinStyles } from '@chisel-ui/core'
 import Component from './Component.astro'
-import type { LayoutProps } from './types.ts'
+import type { Gap, Theme } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+	gap?: Gap<T['gaps']>
+	inlineGap?: Gap<T['gaps']>
+	blockGap?: Gap<T['gaps']>
+}
 
 const {
 	gap = '0px',
@@ -10,7 +17,7 @@ const {
 	theme = {},
 	style = '',
 	...props
-} = Astro.props as LayoutProps
+} = Astro.props as Props
 
 const safeInlineGap = getGapValue(theme, inlineGap ?? gap)
 const safeBlockGap = getGapValue(theme, blockGap ?? gap)

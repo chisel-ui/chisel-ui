@@ -2,7 +2,14 @@
 import { getBreakpointValue, uid } from '@chisel-ui/core'
 import './Columns.css'
 import Layout from './Layout.astro'
-import type { ColumnsProps } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	columns?: number
+	dense?: boolean
+	switchAt?: Breakpoint<T['breakpoints']>
+}
 
 const {
 	theme = {},
@@ -11,7 +18,7 @@ const {
 	dense = false,
 	switchAt = '0px',
 	...props
-} = Astro.props as ColumnsProps
+} = Astro.props as Props
 
 const safeColumns = columns ?? 1
 const safeBreakpoint = getBreakpointValue(theme, switchAt)

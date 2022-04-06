@@ -2,23 +2,30 @@
 import { joinStyles } from '@chisel-ui/core'
 import './Frame.css'
 import Component from './Component.astro'
-import type { FrameProps } from './types.ts'
+import type { Theme } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export type Ratio = `${number}/${number}` | `${number} / ${number}` | [number, number]
+export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+	ratio?: Ratio
+	position?: string
+}
 
 const FRACTION_PATTERN = /(?:[1-9][0-9]*|0).?\/.?[1-9][0-9]*/g
 
-function getRatio(value?: typeof FrameProps['ratio']) {
-	if (value.match(FRACTION_PATTERN)) {
-		const [start, end] = value.split('/')
-		return `${start.trim()}/${end.trim()}`
-	} else if (Array.isArray(value)) {
+function getRatio(value?: Ratio) {
+	if (Array.isArray(value)) {
 		const [start, end] = value
 		return `${start}/${end}`
+	} else if (value.match(FRACTION_PATTERN)) {
+		const [start, end] = value.split('/')
+		return `${start.trim()}/${end.trim()}`
 	}
 
 	return undefined
 }
 
-const { ratio, position, style = '', ...props } = Astro.props as FrameProps
+const { ratio, position, style = '', ...props } = Astro.props as Props
 
 const safeRatio = getRatio(ratio)
 

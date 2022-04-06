@@ -1,7 +1,14 @@
 ---
 import { joinStyles } from '@chisel-ui/core'
 import Component from './Component.astro'
-import type { ColumnProps } from './types.ts'
+import type { Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	span?: number
+	offsetStart?: number
+	offsetEnd?: number
+}
 
 function getSpan(span?: number) {
 	return typeof span === 'number' && span >= 1 ? span : 1
@@ -17,7 +24,7 @@ const {
 	offsetEnd,
 	style = '',
 	...props
-} = Astro.props as ColumnProps
+} = Astro.props as Props
 
 const safeSpan = getSpan(span)
 const safeOffsetStart = getOffset(offsetStart)

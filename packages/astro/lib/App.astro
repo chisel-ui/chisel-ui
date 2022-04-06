@@ -2,14 +2,19 @@
 import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
 import './App.css'
 import Layout from './Layout.astro'
-import type { AppProps } from './types.ts'
+import type { Breakpoint, Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	maxWidth?: Breakpoint<T['breakpoints']>
+}
 
 const {
 	theme = {},
 	maxWidth = 'xl',
 	style = '',
 	...props
-} = Astro.props as AppProps
+} = Astro.props as Props
 
 const safeMaxWidth = getBreakpointValue(theme, maxWidth)
 

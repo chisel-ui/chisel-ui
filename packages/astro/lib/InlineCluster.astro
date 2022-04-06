@@ -2,7 +2,16 @@
 import { joinStyles } from '@chisel-ui/core'
 import './InlineCluster.css'
 import Layout from './Layout.astro'
-import type { Alignment, InlineClusterProps, Justification } from './types.ts'
+import type { Theme } from '@chisel-ui/core'
+import type { Props as LayoutProps } from './Layout.astro'
+
+type Justification = 'start' | 'end' | 'center' | 'between' | 'around'
+type Alignment = 'start' | 'end' | 'center' | 'stretch'
+
+export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
+	justify?: Justification
+	align?: Alignment
+}
 
 function getJustify(value: Justification) {
 	switch (value) {
@@ -39,7 +48,7 @@ const {
 	align = 'start',
 	style = '',
 	...props
-} = Astro.props as InlineClusterProps
+} = Astro.props as Props
 
 const safeJustify = getJustify(justify)
 const safeAlign = getAlign(align)
