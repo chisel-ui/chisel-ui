@@ -1,5 +1,5 @@
 ---
-import { Inline, PadBox, Split } from '@chisel-ui/astro'
+import { Inline, Split } from '@chisel-ui/astro'
 import { uid } from '@chisel-ui/core'
 import Button from './Button.astro'
 import Toggle from './Toggle.astro'
@@ -20,15 +20,13 @@ const inlineStyle = `
 ---
 
 <Split {id} fraction="auto-start" switchAt="sm">
-	<PadBox as="header" padding={{ left: 'sm', right: 'sm' }}>
-		<Inline align="center" justify="between">
-			<a href="/">
-				<span class="sr-only">Go to homepage</span>
-				<img src="/icon.svg" aria-hidden="true" height="32" width="32" />
-			</a>
-			<Button as={Toggle} targetId={id} hollow>☰</Button>
-		</Inline>
-	</PadBox>
+	<Inline  as="header" align="center" justify="between" padding={{ left: 'sm', right: 'sm' }}>
+		<a href="/">
+			<span class="sr-only">Go to homepage</span>
+			<img src="/icon.svg" aria-hidden="true" height="32" width="32" />
+		</a>
+		<Button as={Toggle} targetId={id} hollow>☰</Button>
+	</Inline>
 
 	<slot name="sidebar" />
 	<slot name="content" />
