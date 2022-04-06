@@ -5,15 +5,12 @@ import Layout from './Layout.astro'
 import type { Theme } from '@chisel-ui/core'
 import type { Props as LayoutProps } from './Layout.astro'
 
-type Justification = 'start' | 'end' | 'center' | 'between' | 'around'
-type Alignment = 'start' | 'end' | 'center' | 'stretch'
-
 export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
-	justify?: Justification
-	align?: Alignment
+	justify?: 'start' | 'end' | 'center' | 'between' | 'around'
+	align?: 'start' | 'end' | 'center' | 'stretch'
 }
 
-function getJustify(value: Justification) {
+function getJustify(value: Props['justify']) {
 	switch (value) {
 		case 'end':
 			return 'flex-end'
@@ -29,7 +26,7 @@ function getJustify(value: Justification) {
 	}
 }
 
-function getAlign(value: Alignment) {
+function getAlign(value: Props['align']) {
 	switch (value) {
 		case 'end':
 			return 'flex-end'

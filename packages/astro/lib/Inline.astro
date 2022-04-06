@@ -5,14 +5,12 @@ import InlineCluster from './InlineCluster.astro'
 import type { Breakpoint, Theme } from '@chisel-ui/core'
 import type { Props as InlineClusterProps } from './InlineCluster.astro'
 
-type Stretch = 'all' | 'start' | 'end' | number
-
 export interface Props<T extends Theme = Theme> extends InlineClusterProps<T> {
-	stretch?: Stretch
+	stretch?: 'all' | 'start' | 'end' | number
 	switchAt?: Breakpoint<T['breakpoints']>
 }
 
-function getStretchSelector(stretch?: Stretch) {
+function getStretchSelector(stretch?: Props['stretch']) {
     if (stretch === 'all') {
         return '*'
     } else if (stretch === 'start') {

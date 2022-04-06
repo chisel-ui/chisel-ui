@@ -5,7 +5,10 @@ import Component from './Component.astro'
 import type { Gap, Theme } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
 
-export interface PaddingObject<T extends Theme = Theme> {
+export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+	padding?: Padding<T>
+}
+interface PaddingObject<T extends Theme = Theme> {
 	left?: Gap<T['gaps']>
 	right?: Gap<T['gaps']>
 	top?: Gap<T['gaps']>
@@ -16,7 +19,7 @@ export interface PaddingObject<T extends Theme = Theme> {
 	blockEnd?: Gap<T['gaps']>
 }
 
-export type Padding<T extends Theme = Theme> =
+type Padding<T extends Theme = Theme> =
 	| Gap<T['gaps']>
 	| Partial<PaddingObject<T>>
 	| [Gap<T['gaps']>]
@@ -24,9 +27,6 @@ export type Padding<T extends Theme = Theme> =
 	| [Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>]
 	| [Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>, Gap<T['gaps']>]
 
-export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
-	padding?: Padding<T>
-}
 
 function keyToProperty<T extends Theme>(key: keyof PaddingObject<T>) {
     switch (key) {
