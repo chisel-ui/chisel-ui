@@ -1,5 +1,5 @@
 ---
-import { Page, Stack } from '@chisel-ui/astro'
+import { FullBleed, Stack } from '@chisel-ui/astro'
 import { Sprite } from 'astro-icon'
 import '@chisel-ui/core/reset.css'
 import '@chisel-ui/core/opinionated.css'
@@ -52,9 +52,9 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 					</Accordion>
 				</Stack>
 
-				<Page as="main" slot="content" gap="2xl">
+				<FullBleed as="main" slot="content" gap="2xl">
 					<slot />
-				</Page>
+				</FullBleed>
 			</SidebarLayout>
 		</Sprite.Provider>
 	</body>
