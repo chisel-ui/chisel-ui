@@ -1,4 +1,4 @@
-[data-chisel-app] {
+[data-chisel-full-bleed] {
     display: grid;
     grid-template-columns: 1fr min(
             var(--max-width, 1280px),
@@ -7,11 +7,11 @@
     gap: var(--gap-block, 0px) 0px;
 }
 
-[data-chisel-app] > * {
+[data-chisel-full-bleed] > * {
     grid-column: 2;
 }
 
-[data-chisel-app] > [data-chisel-cover] {
+[data-chisel-full-bleed] > [data-chisel-cover] {
     width: 100%;
     grid-column: 1 / -1;
 }
