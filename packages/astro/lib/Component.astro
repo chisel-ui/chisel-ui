@@ -1,8 +1,10 @@
 ---
 import type { Theme } from '@chisel-ui/core'
 
+export type AstroComponent<T extends Theme> = (props: Props<T>) => string
+
 export interface Props<T extends Theme = Theme> {
-	as?: string
+	as?: string | AstroComponent<T>
 	theme?: T
 	id?: string
 	class?: string
