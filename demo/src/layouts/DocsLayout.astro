@@ -3,6 +3,7 @@ import { FullBleed, Stack } from '@chisel-ui/astro'
 import { Sprite } from 'astro-icon'
 import '@chisel-ui/core/reset.css'
 import '@chisel-ui/core/opinionated.css'
+import '../styles/main.css'
 import Accordion from '../components/Accordion.astro'
 import SidebarLayout from '../components/SidebarLayout.astro'
 
@@ -24,14 +25,18 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 	<body>
 		<Sprite.Provider>
 			<SidebarLayout>
-				<Stack as="nav" slot="sidebar" gap="lg">
+				<Stack as="nav" slot="sidebar" gap="lg" padding={['2xl', '2rem']}>
 					<Accordion open>
-						<Fragment slot="summary">Layouts</Fragment>
+						<Fragment slot="summary">Components</Fragment>
 
-						<Stack as="ul" gap="xs">
+						<Stack as="ul" gap="xs" padding={['0.5rem', 0, '1rem']}>
+							<li><a href="/center">Center</a></li>
 							<li><a href="/columndrop">ColumnDrop</a></li>
 							<li><a href="/columns">Columns</a></li>
 							<li><a href="/column">Column</a></li>
+							<li><a href="/cover">Cover</a></li>
+							<li><a href="/frame">Frame</a></li>
+							<li><a href="/fullbleed">FullBleed</a></li>
 							<li><a href="/grid">Grid</a></li>
 							<li><a href="/inline">Inline</a></li>
 							<li><a href="/inlinecluster">InlineCluster</a></li>
@@ -39,20 +44,9 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 							<li><a href="/stack">Stack</a></li>
 						</Stack>
 					</Accordion>
-
-					<Accordion open>
-						<Fragment slot="summary">Wrappers</Fragment>
-
-						<Stack as="ul" gap="xs">
-							<li><a href="/wrappers/center">Center</a></li>
-							<li><a href="/wrappers/cover">Cover</a></li>
-							<li><a href="/wrappers/frame">Frame</a></li>
-							<li><a href="/wrappers/padbox">PadBox</a></li>
-						</Stack>
-					</Accordion>
 				</Stack>
 
-				<FullBleed as="main" slot="content" gap="2xl">
+				<FullBleed as="main" slot="content" gap="2xl" padding={{top: 'xl'}}>
 					<slot />
 				</FullBleed>
 			</SidebarLayout>
@@ -62,12 +56,7 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 
 <style>
 	nav {
-		padding: 1rem 2rem;
 		min-width: 20ch;
-	}
-
-	nav ul {
-		padding: 0.5rem 0 1rem;
 	}
 
 	main :global(table em) {
@@ -93,6 +82,12 @@ const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
 		main :global(table td),
 		main :global(table th) {
 			padding: 1.2rem 0.25rem;
+		}
+	}
+
+	@media (min-width: 640px) {
+		nav {
+			border-right: 3px solid var(--chisel-neutral-300);
 		}
 	}
 </style>

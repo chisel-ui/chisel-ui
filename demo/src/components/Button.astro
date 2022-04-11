@@ -1,25 +1,27 @@
 ---
+import { Component } from '@chisel-ui/astro'
+import { joinClasses } from '@chisel-ui/core'
+
 const {
 	as: Tag = 'button',
 	hollow = false,
-	class: className = '',
+	class: className,
 	...props
 } = Astro.props
 
-const componentClasses = [className.split(' '), hollow && 'hollow']
-	.filter(Boolean)
-	.join(' ')
+const componentClasses = joinClasses(className, hollow && 'hollow')
 ---
 
-<Tag type="button" class={componentClasses} {...props}>
+<Component as={Tag} type="button" class={componentClasses} {...props}>
 	<slot />
-</Tag>
+</Component>
 
 <style>
 	.hollow {
 		background-color: transparent;
 		color: var(--chisel-primary);
 		border-color: transparent;
-		font-size: var(--chisel-h5);
+		font-size: var(--chisel-size-500);
+		padding-inline-end: 0;
 	}
 </style>

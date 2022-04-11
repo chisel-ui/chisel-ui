@@ -1,7 +1,6 @@
 ---
 import { defaultGaps, getGapValue, joinStyles, isCssLength, uid } from '@chisel-ui/core'
 import Component from './Component.astro'
-import './Layout.css'
 import type { Gap, Theme } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
 
@@ -62,7 +61,7 @@ function isValidPadding<T extends Theme>(theme: T, padding: Props['padding']) {
         return padding.length > 0 && padding.length < 5
     } else if (typeof padding === 'object') {
         return Object.entries(padding).every(([key, value]) => {
-            return !!keyToProperty(key) && isValidPadding(theme, value)
+            return !!keyToProperty(key as keyof PaddingObject<T>) && isValidPadding(theme, value)
         })
     }
 
@@ -119,7 +118,7 @@ function paddingToString<T extends Theme>(theme: T, padding: Props['padding']) {
         }
     } else if (typeof padding === 'object') {
         const array = Object.entries(padding).map(([key, value]) => {
-            return `${keyToProperty(key)}: ${getGapValue(theme, value as Gap<T['gaps']>)};`
+            return `${keyToProperty(key as keyof Padding<T>)}: ${getGapValue(theme, value as Gap<T['gaps']>)};`
         })
         
         return array.join(' ');
@@ -150,7 +149,7 @@ const componentStyle = joinStyles(
 )
 
 const inlineStyle = safePadding && `
-    #${id} {
+    :where(#${id}) {
         ${safePadding}
     }
 `

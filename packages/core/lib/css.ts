@@ -60,6 +60,11 @@ export function isCssLength(string_: string): string_ is CSSLength {
 	].some(regex => regex.test(string_))
 }
 
-export function joinStyles(...values) {
+export function joinClasses(...values: string[]) {
+	const trim = (v: string) => v.trim()
+	return values.filter(Boolean).map(trim).filter(Boolean).join(' ')
+}
+
+export function joinStyles(...values: string[]) {
 	return values.filter(Boolean).join(';')
 }

@@ -26,7 +26,7 @@
     align-items: center;
 }
 
-[data-chisel-frame] > :is(img, video) {
+[data-chisel-frame] > :where(img, video) {
     inline-size: 100%;
     block-size: 100%;
     size: 100%;
