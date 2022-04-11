@@ -1,6 +1,6 @@
 {
-	"name": "@example/component",
-	"version": "0.0.1",
+	"name": "@chisel-ui",
+	"version": "0.6.0",
 	"private": true,
 	"scripts": {
 		"dev": "astro --project-root demo dev",
