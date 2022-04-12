@@ -416,6 +416,7 @@
 	border-radius: 0; /* 4 */
 	display: block; /* 4 */
 	white-space: pre; /* 4 */
+	padding: 1em; /* 4 */
 }
 
 /* Dividers
