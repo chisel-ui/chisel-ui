@@ -40,6 +40,26 @@ This component can be used as a child of `<Columns>` to span multiple column. Of
     <Box />
 </Columns>
 
+```astro
+<Columns gap="lg" columns={4}>
+    <Box />
+    <Box />
+    <Column span={3}>
+        <Box style="background: var(--chisel-primary);">
+            3 columns
+        </Box>
+    </Column>
+    <Column span={2}>
+        <Box style="background: var(--chisel-primary);">
+            2 columns
+        </Box>
+    </Column>
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 ### `offsetStart` and `offsetEnd`
 
 Adding an offset forces blank columns before or after the `Column`. Gaps can wrap to the next row!
@@ -63,3 +83,23 @@ Adding an offset forces blank columns before or after the `Column`. Gaps can wra
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="lg" columns={5}>
+    <Box />
+    <Box />
+    <Column span={2} offsetStart={1}>
+        <Box style="background: var(--chisel-primary);">
+            `offsetStart: 1
+        </Box>
+    </Column>
+    <Column span={2} offsetEnd={2}>
+        <Box style="background: var(--chisel-primary);">
+            `offsetEnd: 2`
+        </Box>
+    </Column>
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```

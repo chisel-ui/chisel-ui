@@ -31,6 +31,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap={20} minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### Custom gap as string ("3ch")
 
 <Grid gap="3ch" minItemWidth="25rem">
@@ -38,6 +46,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="3ch" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 #### none
 
@@ -47,6 +63,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap="none" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### 2xs
 
 <Grid gap="2xs" minItemWidth="25rem">
@@ -54,6 +78,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="2xs" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 #### xs
 
@@ -63,6 +95,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap="xs" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### sm
 
 <Grid gap="sm" minItemWidth="25rem">
@@ -70,6 +110,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="sm" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 #### md
 
@@ -79,6 +127,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap="md" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### lg
 
 <Grid gap="lg" minItemWidth="25rem">
@@ -86,6 +142,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="lg" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 #### xl
 
@@ -95,6 +159,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap="xl" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### 2xl
 
 <Grid gap="2xl" minItemWidth="25rem">
@@ -102,6 +174,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="2xl" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 #### 3xl
 
@@ -111,6 +191,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
 </Grid>
 
+```astro
+<Grid gap="3xl" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
+
 #### 4xl
 
 <Grid gap="4xl" minItemWidth="25rem">
@@ -118,6 +206,14 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="4xl" minItemWidth="25rem">
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```
 
 ### `minItemWidth`
 
@@ -133,3 +229,16 @@ The `gap` property defines the gap between grid items. This can be a size define
     <Box />
     <Box />
 </Grid>
+
+```astro
+<Grid gap="lg" minItemWidth="15rem">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Grid>
+```

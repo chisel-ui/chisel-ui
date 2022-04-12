@@ -34,6 +34,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### Custom gap as string ("3ch")
 
 <Split gap="3ch">
@@ -43,6 +53,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
 
 #### none
 
@@ -54,6 +74,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 2xs
 
 <Split gap="2xs">
@@ -63,6 +93,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
 
 #### xs
 
@@ -74,6 +114,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### sm
 
 <Split gap="sm">
@@ -83,6 +133,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
 
 #### md
 
@@ -94,8 +154,27 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### lg
 
+<Split gap="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+
+```astro
 <Split gap="lg">
     <Box />
     <Box />
@@ -114,6 +193,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 2xl
 
 <Split gap="2xl">
@@ -123,6 +212,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
 
 #### 3xl
 
@@ -134,6 +233,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Split>
 
+```astro
+<Split gap="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 4xl
 
 <Split gap="4xl">
@@ -143,6 +252,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Split>
+```
 
 ## `fraction`
 
@@ -155,12 +274,26 @@ This attribute defines the fraction of the container width that is used for the 
     <Box />
 </Split>
 
+```astro
+<Split gap="lg" fraction="1/4">
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 1/3
 
 <Split gap="lg" fraction="1/3">
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="lg" fraction="1/3">
+    <Box />
+    <Box />
+</Split>
+```
 
 #### 1/2
 
@@ -169,6 +302,13 @@ This attribute defines the fraction of the container width that is used for the 
     <Box />
 </Split>
 
+```astro
+<Split gap="lg" fraction="1/2">
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 2/3
 
 <Split gap="lg" fraction="2/3">
@@ -176,12 +316,26 @@ This attribute defines the fraction of the container width that is used for the 
     <Box />
 </Split>
 
+```astro
+<Split gap="lg" fraction="2/3">
+    <Box />
+    <Box />
+</Split>
+```
+
 #### 3/4
 
 <Split gap="lg" fraction="3/4">
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="lg" fraction="3/4">
+    <Box />
+    <Box />
+</Split>
+```
 
 #### auto-start
 
@@ -192,6 +346,13 @@ This attribute defines the fraction of the container width that is used for the 
     <Box />
 </Split>
 
+```astro
+<Split gap="lg" fraction="auto-start">
+    <Box />
+    <Box />
+</Split>
+```
+
 #### auto-end
 
 (The second box has a width of 50px)
@@ -200,6 +361,13 @@ This attribute defines the fraction of the container width that is used for the 
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="lg" fraction="auto-end">
+    <Box />
+    <Box />
+</Split>
+```
 
 ## `switchAt`
 
@@ -215,3 +383,10 @@ This attribute sets a minimum screen width for the inline items to be shown hori
     <Box />
     <Box />
 </Split>
+
+```astro
+<Split gap="lg" fraction="1/3" switchAt="45rem">
+    <Box />
+    <Box />
+</Split>
+```

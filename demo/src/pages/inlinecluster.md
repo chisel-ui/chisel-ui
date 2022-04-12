@@ -34,6 +34,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### Custom gap as string ("3ch")
 
 <InlineCluster gap="3ch">
@@ -43,6 +53,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 #### none
 
@@ -54,6 +74,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### 2xs
 
 <InlineCluster gap="2xs">
@@ -63,6 +93,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 #### xs
 
@@ -74,6 +114,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### sm
 
 <InlineCluster gap="sm">
@@ -83,6 +133,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 #### md
 
@@ -94,6 +154,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### lg
 
 <InlineCluster gap="lg">
@@ -103,6 +173,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 #### xl
 
@@ -114,6 +194,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### 2xl
 
 <InlineCluster gap="2xl">
@@ -123,6 +213,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 #### 3xl
 
@@ -134,6 +234,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster gap="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### 4xl
 
 <InlineCluster gap="4xl">
@@ -143,6 +253,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster gap="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 ## `justify`
 
@@ -159,6 +279,15 @@ This attribute defines the InlineCluster justification of elements in the cluste
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster justify="start" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### end
 
 <InlineCluster justify="end" gap="xl">
@@ -168,6 +297,15 @@ This attribute defines the InlineCluster justification of elements in the cluste
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster justify="end" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### center
 
 <InlineCluster justify="center" gap="xl">
@@ -176,6 +314,15 @@ This attribute defines the InlineCluster justification of elements in the cluste
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster justify="center" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</InlineCluster>
+```
 
 ## `align`
 
@@ -191,6 +338,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster align="start" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### end
 
 <InlineCluster align="end" gap="xl">
@@ -199,6 +354,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
 </InlineCluster>
 
+```astro
+<InlineCluster align="end" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</InlineCluster>
+```
+
 #### center
 
 <InlineCluster align="center" gap="xl">
@@ -206,3 +369,11 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
     <Box />
 </InlineCluster>
+
+```astro
+<InlineCluster align="center" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</InlineCluster>
+```

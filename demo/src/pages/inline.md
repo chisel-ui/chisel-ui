@@ -38,6 +38,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### Custom gap as string ("3ch")
 
 <Inline gap="3ch">
@@ -47,6 +57,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### none
 
@@ -58,6 +78,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### 2xs
 
 <Inline gap="2xs">
@@ -67,6 +97,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### xs
 
@@ -78,6 +118,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### sm
 
 <Inline gap="sm">
@@ -87,6 +137,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### md
 
@@ -98,6 +158,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### lg
 
 <Inline gap="lg">
@@ -107,6 +177,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### xl
 
@@ -118,6 +198,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### 2xl
 
 <Inline gap="2xl">
@@ -127,6 +217,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### 3xl
 
@@ -138,6 +238,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Inline>
 
+```astro
+<Inline gap="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### 4xl
 
 <Inline gap="4xl">
@@ -147,6 +257,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 ## `justify`
 
@@ -163,6 +283,15 @@ This attribute defines the inline justification of elements in the cluster. Opti
     <Box />
 </Inline>
 
+```astro
+<Inline justify="start" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### end
 
 <Inline justify="end" gap="xl">
@@ -172,6 +301,15 @@ This attribute defines the inline justification of elements in the cluster. Opti
     <Box />
 </Inline>
 
+```astro
+<Inline justify="end" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### center
 
 <Inline justify="center" gap="xl">
@@ -180,6 +318,15 @@ This attribute defines the inline justification of elements in the cluster. Opti
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline justify="center" gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 ## `align`
 
@@ -195,6 +342,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
 </Inline>
 
+```astro
+<Inline align="start" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### end
 
 <Inline align="end" gap="xl">
@@ -202,6 +357,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline align="end" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### center
 
@@ -211,6 +374,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
 </Inline>
 
+```astro
+<Inline align="center" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### stretch
 
 <Inline align="stretch" gap="xl">
@@ -218,6 +389,14 @@ This attribute defines the block alignment of the element within the cluster. Op
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline align="stretch" gap="xl">
+    <Box style="height: 200px;" />
+    <Box />
+    <Box />
+</Inline>
+```
 
 ## `stretch`
 
@@ -232,6 +411,15 @@ This attribute can be used to stretch a specific child component to fill any ext
     <Box />
 </Inline>
 
+```astro
+<Inline gap="lg" stretch="start">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### end
 
 <Inline gap="lg" stretch="end">
@@ -240,6 +428,15 @@ This attribute can be used to stretch a specific child component to fill any ext
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="lg" stretch="end">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 #### all
 
@@ -250,6 +447,15 @@ This attribute can be used to stretch a specific child component to fill any ext
     <Box />
 </Inline>
 
+```astro
+<Inline gap="lg" stretch="all">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
+
 #### Index 2
 
 <Inline gap="lg" stretch={2}>
@@ -258,6 +464,15 @@ This attribute can be used to stretch a specific child component to fill any ext
     <Box />
     <Box />
 </Inline>
+
+```astro
+<Inline gap="lg" stretch={2}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Inline>
+```
 
 ## `switchAt`
 
@@ -283,3 +498,20 @@ This attribute sets a minimum screen width for the inline items to be shown hori
         <Box />
     </Box>
 </Inline>
+
+```astro
+<Inline gap="lg" switchAt="45rem">
+    <Box>
+        <Box />
+    </Box>
+    <Box>
+        <Box />
+    </Box>
+    <Box>
+        <Box />
+    </Box>
+    <Box>
+        <Box />
+    </Box>
+</Inline>
+```

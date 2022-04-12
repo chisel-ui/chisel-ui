@@ -1,22 +1,24 @@
 ---
-import XElement from 'astro-xelement'
+import { Component } from '@chisel-ui/astro'
 
-const { as = 'button', attr = 'active', targetId, ...props } = Astro.props
-
-const toggle = event => {
-	const target = (targetId && document.getElementById(targetId)) || event.target
-
-	target.hasAttribute(attr)
-		? target.removeAttribute(attr)
-		: target.setAttribute(attr, '')
-}
+const { as = 'button', active = false, targetId, attr = 'active', ...props } = Astro.props
 ---
 
-<XElement
-	@is={as}
-	define:vars={{ attr, targetId }}
-	@click:useCapture={toggle}
-	{...props}
->
-	<slot />
-</XElement>
+<Component {as} data-toggle={attr} data-target-id={targetId} {...props}>
+    <slot />
+</Component>
+
+<script is:global>
+    function onClick({ target }) {
+        const toggleTarget = (target.dataset.targetId && document.getElementById(target.dataset.targetId)) || target
+        const attr = target.dataset.toggle
+
+        toggleTarget.hasAttribute(attr)
+            ? toggleTarget.removeAttribute(attr)
+            : toggleTarget.setAttribute(attr, '')
+    }
+
+    for (const elem of document.querySelectorAll('[data-toggle]')) {
+        elem.addEventListener('click', onClick, true)
+    }
+</script>

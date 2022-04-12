@@ -1,9 +1,8 @@
 ---
-import { FullBleed, Inline, Split } from '@chisel-ui/astro'
+import { Split } from '@chisel-ui/astro'
 import { uid } from '@chisel-ui/core'
-import Button from './Button.astro'
-import Toggle from './Toggle.astro'
 import Header from './Header.astro'
+import ScrollBehavior from './ScrollBehavior.astro'
 
 const id = uid()
 
@@ -20,7 +19,7 @@ const inlineStyle = `
 `
 ---
 
-<Header targetId={id} />
+<ScrollBehavior as={Header} targetId={id} scrolledClass="elevation-medium" />
 
 <Split {id} fraction="auto-start" switchAt="sm">
 

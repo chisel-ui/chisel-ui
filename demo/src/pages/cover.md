@@ -29,12 +29,26 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap={20} style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### Custom gap as string ("3ch")
 
 <Cover minHeight="25vh" gap="3ch" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="3ch" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
 
 #### 2xs
 
@@ -43,12 +57,26 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap="2xs" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### xs
 
 <Cover minHeight="25vh" gap="xs" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="xs" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
 
 #### sm
 
@@ -57,12 +85,26 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap="sm" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### md
 
 <Cover minHeight="25vh" gap="md" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="md" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
 
 #### lg
 
@@ -71,12 +113,26 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap="lg" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### xl
 
 <Cover minHeight="25vh" gap="xl" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
 
 #### 2xl
 
@@ -85,6 +141,13 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap="2xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### 3xl
 
 <Cover minHeight="25vh" gap="3xl" style="border: solid 1px var(--chisel-neutral-800);">
@@ -92,12 +155,26 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight="25vh" gap="3xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### 4xl
 
 <Cover minHeight="25vh" gap="4xl" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="4xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
 
 ## `minHeight`
 
@@ -112,9 +189,23 @@ The `minHeight` property cna be used to set the minimum height, `100vh` by defau
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
 
+```astro
+<Cover minHeight={500} gap="md" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```
+
 #### Custom minHeight as a string (25vh)
 
 <Cover minHeight="25vh" gap="sm" style="border: solid 1px var(--chisel-neutral-800);">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </Cover>
+
+```astro
+<Cover minHeight="25vh" gap="sm" style="border: solid 1px var(--chisel-neutral-800);">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</Cover>
+```

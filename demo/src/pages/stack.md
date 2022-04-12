@@ -32,6 +32,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### Custom gap as string ("3ch")
 
 <Stack gap="3ch">
@@ -41,6 +51,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
 
 #### none
 
@@ -52,6 +72,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### 2xs
 
 <Stack gap="2xs">
@@ -61,6 +91,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
 
 #### xs
 
@@ -72,6 +112,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### sm
 
 <Stack gap="sm">
@@ -81,6 +131,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
 
 #### md
 
@@ -92,6 +152,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### lg
 
 <Stack gap="lg">
@@ -101,6 +171,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
 
 #### xl
 
@@ -112,6 +192,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### 2xl
 
 <Stack gap="2xl">
@@ -121,6 +211,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
 
 #### 3xl
 
@@ -132,6 +232,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Stack>
 
+```astro
+<Stack gap="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```
+
 #### 4xl
 
 <Stack gap="4xl">
@@ -141,3 +251,13 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Stack>
+
+```astro
+<Stack gap="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Stack>
+```

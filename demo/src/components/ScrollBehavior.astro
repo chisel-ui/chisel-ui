@@ -1,0 +1,19 @@
+---
+import { Component } from '@chisel-ui/astro'
+import { uid } from '@chisel-ui/core'
+
+const { scrolledClass = 'scrolled', offset = 65, id = uid(), ...props } = Astro.props
+---
+
+<Component {id} {...props}>
+    <slot />
+</Component>
+
+<script define:vars={{id, scrolledClass, offset}}>
+    const elem = document.getElementById(id)
+
+    document.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > offset
+        scrolled ? elem.classList.add(scrolledClass) : elem.classList.remove(scrolledClass)
+    }, true)
+</script>

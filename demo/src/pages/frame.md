@@ -28,11 +28,23 @@ The `ratio` property defines the aspect ratio maintained in the child element. T
     <img src="/data-pic.jpg" alt="computer with data" />
 </Frame>
 
+```astro
+<Frame as={Center} maxWidth="md" ratio="16/9">
+    <img src="/data-pic.jpg" alt="computer with data" />
+</Frame>
+```
+
 #### Array ([4, 3])
 
 <Frame as={Center} maxWidth="md" ratio={[4, 3]}>
     <img src="/data-pic.jpg" alt="computer with data" />
 </Frame>
+
+```astro
+<Frame as={Center} maxWidth="md" ratio={[4, 3]}>
+    <img src="/data-pic.jpg" alt="computer with data" />
+</Frame>
+```
 
 ## `position`
 
@@ -45,3 +57,9 @@ Content will be centered in the `<Frame>` by default. The `position` property ac
 <Frame as={Center} maxWidth="md" ratio="1/1" position="left top">
     <img src="/data-pic.jpg" alt="computer with data" />
 </Frame>
+
+```astro
+<Frame as={Center} maxWidth="md" ratio="1/1" position="left top">
+    <img src="/data-pic.jpg" alt="computer with data" />
+</Frame>
+```

@@ -6,7 +6,7 @@ import Toggle from './Toggle.astro'
 const { targetId, ...props } = Astro.props
 ---
 
-<Inline as="header" align="center" justify="between" padding={['0.5rem', '2rem']} class="elevation-medium" {...props}>
+<Inline as="header" align="center" justify="between" padding={['0.5rem', '2rem']} {...props}>
     <InlineCluster as="a" href="/" gap="sm">
         <span class="sr-only">Go to homepage</span>
         <img src="/icon.svg" aria-hidden="true" height="32" width="32" />

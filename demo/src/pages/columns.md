@@ -35,6 +35,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap={20} columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### Custom gap as string ("3ch")
 
 <Columns gap="3ch" columns={4}>
@@ -44,6 +54,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="3ch" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 #### none
 
@@ -55,6 +75,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap="none" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### 2xs
 
 <Columns gap="2xs" columns={4}>
@@ -64,6 +94,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="2xs" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 #### xs
 
@@ -75,6 +115,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap="xs" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### sm
 
 <Columns gap="sm" columns={4}>
@@ -84,6 +134,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="sm" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 #### md
 
@@ -95,6 +155,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap="md" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### lg
 
 <Columns gap="lg" columns={4}>
@@ -104,6 +174,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="lg" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 #### xl
 
@@ -115,6 +195,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap="xl" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### 2xl
 
 <Columns gap="2xl" columns={4}>
@@ -124,6 +214,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="2xl" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 #### 3xl
 
@@ -135,6 +235,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </Columns>
 
+```astro
+<Columns gap="3xl" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
+
 #### 4xl
 
 <Columns gap="4xl" columns={4}>
@@ -144,6 +254,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="4xl" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```
 
 ## `columns`
 
@@ -162,3 +282,15 @@ Defines the number of columns used. If `switchAt` is used, this will be ignored 
     <Box />
     <Box />
 </Columns>
+
+```astro
+<Columns gap="lg" columns={4}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</Columns>
+```

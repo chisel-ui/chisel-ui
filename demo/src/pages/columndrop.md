@@ -33,6 +33,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap={20}>
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### Custom gap as string ("3ch")
 
 <ColumnDrop gap="3ch">
@@ -41,6 +50,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="3ch">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 #### none
 
@@ -51,6 +69,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="none">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### 2xs
 
 <ColumnDrop gap="2xs">
@@ -59,6 +86,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="2xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 #### xs
 
@@ -69,6 +105,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="xs">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### sm
 
 <ColumnDrop gap="sm">
@@ -77,6 +122,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="sm">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 #### md
 
@@ -87,6 +141,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="md">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### lg
 
 <ColumnDrop gap="lg">
@@ -95,6 +158,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="lg">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 #### xl
 
@@ -105,6 +177,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### 2xl
 
 <ColumnDrop gap="2xl">
@@ -113,6 +194,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="2xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 #### 3xl
 
@@ -123,6 +213,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="3xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### 4xl
 
 <ColumnDrop gap="4xl">
@@ -131,6 +230,15 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="4xl">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 ## `basis`
 
@@ -147,6 +255,15 @@ The `basis` property sets the initial main size of the child items.
     <Box />
 </ColumnDrop>
 
+```astro
+<ColumnDrop gap="lg" basis="15rem">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```
+
 #### Item-specific basis
 
 <ColumnDrop gap="lg" basis="15rem">
@@ -157,6 +274,17 @@ The `basis` property sets the initial main size of the child items.
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop gap="lg" basis="15rem">
+    <Box />
+    <Box style="--basis: 25rem;">
+        25rem
+    </Box>
+    <Box />
+    <Box />
+</ColumnDrop>
+```
 
 ## `noStretchedColumns`
 
@@ -172,3 +300,16 @@ By default, `ColumnDrop` will stretch items to fill each row. Adding the `noStre
     <Box />
     <Box />
 </ColumnDrop>
+
+```astro
+<ColumnDrop noStretchedColumns gap="lg" basis="20rem">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</ColumnDrop>
+```

@@ -33,6 +33,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap={20} style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### Custom gap as string ("3ch")
 
 <FullBleed gap="3ch" style="border: solid 1px var(--chisel-neutral-800);">
@@ -42,6 +52,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="3ch" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### none
 
@@ -53,6 +73,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap="none" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### 2xs
 
 <FullBleed gap="2xs" style="border: solid 1px var(--chisel-neutral-800);">
@@ -62,6 +92,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="2xs" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### xs
 
@@ -73,6 +113,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap="xs" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### sm
 
 <FullBleed gap="sm" style="border: solid 1px var(--chisel-neutral-800);">
@@ -82,6 +132,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="sm" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### md
 
@@ -93,6 +153,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap="md" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### lg
 
 <FullBleed gap="lg" style="border: solid 1px var(--chisel-neutral-800);">
@@ -102,6 +172,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="lg" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### xl
 
@@ -113,6 +193,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap="xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### 2xl
 
 <FullBleed gap="2xl" style="border: solid 1px var(--chisel-neutral-800);">
@@ -122,6 +212,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="2xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### 3xl
 
@@ -133,6 +233,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap="3xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### 4xl
 
 <FullBleed gap="4xl" style="border: solid 1px var(--chisel-neutral-800);">
@@ -142,6 +252,16 @@ The `gap` property defines the gap between elements. This can be a size defined 
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap="4xl" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 ## `maxWidth`
 
@@ -159,6 +279,16 @@ The `maxWidth` property sets the maximum inline width for all child components (
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap={20} maxWidth={300} style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### Custom gap as string (30ch)
 
 <FullBleed gap={20} maxWidth="30ch" style="border: solid 1px var(--chisel-neutral-800);">
@@ -168,6 +298,16 @@ The `maxWidth` property sets the maximum inline width for all child components (
     <Box />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap={20} maxWidth="30ch" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
 
 #### Theme breakpoint (md)
 
@@ -179,6 +319,16 @@ The `maxWidth` property sets the maximum inline width for all child components (
     <Box />
 </FullBleed>
 
+```astro
+<FullBleed gap={20} maxWidth="md" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+    <Box />
+</FullBleed>
+```
+
 #### With a `<Cover>` child
 
 <FullBleed gap={20} maxWidth="md" style="border: solid 1px var(--chisel-neutral-800);">
@@ -186,3 +336,11 @@ The `maxWidth` property sets the maximum inline width for all child components (
     <Cover as={Box} />
     <Box />
 </FullBleed>
+
+```astro
+<FullBleed gap={20} maxWidth="md" style="border: solid 1px var(--chisel-neutral-800);">
+    <Box />
+    <Cover as={Box} />
+    <Box />
+</FullBleed>
+```
