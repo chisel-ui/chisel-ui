@@ -1,20 +1,38 @@
 ---
-import type { Theme } from '@chisel-ui/core'
+import { getGapValue, joinStyles } from '@chisel-ui/core'
+import '@chisel-ui/core/core.css'
+import type { Gap } from '@chisel-ui/core'
 
-export type AstroComponent<T extends Theme> = (props: Props<T>) => string
-
-export interface Props<T extends Theme = Theme> {
-	as?: string | AstroComponent<T>
-	theme?: T
+export type AstroComponent = (props: Props) => string
+export interface Props {
+	as?: string | AstroComponent
 	id?: string
+	gap?: Gap
+    gapInline?: Gap
+    gapBlock?: Gap
 	class?: string
 	style?: string
 	[key: string]: any
 }
 
-const { as: Tag = 'div', theme, ...props } = Astro.props as Props
+const {
+	as: Tag = 'div',
+	gap,
+	gapInline,
+	gapBlock,
+	style,
+	...props } = Astro.props as Props
+
+const maybeGapInline = gapInline ?? gap
+const maybeGapBlock = gapBlock ?? gap
+
+const componentStyle = joinStyles(
+	maybeGapInline && `--gap-inline: ${getGapValue(maybeGapInline)}`,
+	maybeGapBlock && `--gap-block: ${getGapValue(maybeGapBlock)}`,
+	style
+)
 ---
 
-<Tag {...props}>
+<Tag style={componentStyle} {...props}>
 	<slot />
 </Tag>

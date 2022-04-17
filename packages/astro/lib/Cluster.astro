@@ -1,12 +1,11 @@
 ---
 import { joinStyles } from '@chisel-ui/core'
-import './InlineCluster.css'
-import Layout from './Layout.astro'
-import type { Theme } from '@chisel-ui/core'
-import type { Props as LayoutProps } from './Layout.astro'
+import './Cluster.css'
+import Component from './Component.astro'
+import type { Props as ComponentProps } from './Component.astro'
 
-export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
-	justify?: 'start' | 'end' | 'center' | 'between' | 'around'
+export interface Props extends ComponentProps {
+    justify?: 'start' | 'end' | 'center' | 'between' | 'around'
 	align?: 'start' | 'end' | 'center' | 'stretch'
 }
 
@@ -57,6 +56,6 @@ const componentStyle = joinStyles(
 )
 ---
 
-<Layout data-chisel-inline-cluster style={componentStyle} {...props}>
+<Component data-chisel-cluster style={componentStyle} {...props}>
 	<slot />
-</Layout>
+</Component>

@@ -1,0 +1,25 @@
+---
+import '@chisel-ui/core/core.css'
+import '@chisel-ui/core/reset.css'
+import { FullBleed } from '@chisel-ui/astro'
+
+const { content } = Astro.props
+const title = [content?.title, 'Chisel UI'].filter(Boolean).join(' | ')
+---
+
+<html lang="en" data-chisel-theme="light">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+
+	<FullBleed as="body">
+		<slot />
+	</FullBleed>
+</html>
+

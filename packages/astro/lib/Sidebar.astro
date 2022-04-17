@@ -1,0 +1,37 @@
+---
+import { getCssLength, joinStyles } from '@chisel-ui/core'
+import './Sidebar.css'
+import Component from './Component.astro'
+import type { CSSLength } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+    side?: 'start' | 'end'
+    sideWidth?: CSSLength
+    contentMin?: CSSLength
+    noStretch?: boolean
+}
+
+const {
+    side = 'left',
+    sideWidth,
+    contentMin,
+    noStretch = false,
+    style = '',
+    ...props
+} = Astro.props as Props
+
+const maybeSideWidth = getCssLength(sideWidth)
+const maybeContentMin = getCssLength(contentMin)
+
+const componentStyle = joinStyles(
+    maybeSideWidth && `--side-width: ${maybeSideWidth}`,
+    maybeContentMin && `--content-min: ${maybeContentMin}`,
+    style
+)
+---
+
+<Component data-chisel-sidebar={side} style={componentStyle} {...props}>
+    <slot name='sidebar' />
+    <slot name='content' />
+</Component>

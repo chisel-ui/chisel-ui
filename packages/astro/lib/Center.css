@@ -3,9 +3,10 @@
     margin-inline-start: auto;
     margin-inline-end: auto;
     margin-inline: auto;
-    max-inline-size: var(--max-width, 100%);
+    max-inline-size: var(--max-width, var(--measure));
+    padding-inline: var(--gap-inline, 0px);
 }
-[data-chisel-center~='content'] {
+[data-chisel-center~='children'] {
     display: flex;
     flex-direction: column;
     align-items: center;

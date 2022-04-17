@@ -1,0 +1,40 @@
+---
+import { getCssLength, joinStyles, uid } from '@chisel-ui/core'
+import './Switcher.css'
+import Component from './Component.astro'
+import type { CSSLength } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+    threshold?: CSSLength
+    limit?: number
+}
+
+const {
+    threshold,
+    limit = 4,
+    style = '',
+    id = uid(),
+    ...props
+} = Astro.props as Props
+
+const maybeThreshold = getCssLength(threshold)
+
+const componentStyle = joinStyles(
+    maybeThreshold && `--threshold: ${maybeThreshold}`,
+    style
+)
+
+const inlineStyle = `
+#${id} > :nth-child(n+${limit + 1}),
+#${id} > :nth-child(n+${limit + 1}) ~ * {
+    flex-basis: 100%;
+}
+`
+---
+
+<style set:html={inlineStyle}></style>
+
+<Component {id} data-chisel-switcher style={componentStyle} {...props}>
+    <slot />
+</Component>

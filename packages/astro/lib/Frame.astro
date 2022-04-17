@@ -2,11 +2,10 @@
 import { joinStyles } from '@chisel-ui/core'
 import './Frame.css'
 import Component from './Component.astro'
-import type { Theme } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
 
 export type Ratio = `${number}/${number}` | `${number} / ${number}` | [number, number]
-export interface Props<T extends Theme = Theme> extends ComponentProps<T> {
+export interface Props extends ComponentProps {
 	ratio?: Ratio
 	position?: string
 }

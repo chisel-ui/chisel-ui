@@ -1,36 +1,28 @@
 import { isCssLength } from './css'
-import { fromEntries } from './utils'
 import type { CSSLength } from './css'
-import type { Theme } from './themes'
 import type { Maybe } from './utils'
 
-export type Gaps = Record<string, CSSLength>
-export type Gap<T extends Gaps> = CSSLength | number | keyof T
-
-export const defaultGaps: Gaps = {
-	none: '0px',
-	'2xs': '0.125rem',
-	xs: '0.5rem',
-	sm: '0.75rem',
-	md: '1rem',
-	lg: '1.25rem',
-	xl: '1.75rem',
-	'2xl': '2.25rem',
-	'3xl': '3rem',
-	'4xl': '4.5rem',
+const Gaps = {
+    '4xs': 'var(--gap-4xs)',
+    '3xs': 'var(--gap-3xs)',
+    '2xs': 'var(--gap-2xs)',
+    'xs': 'var(--gap-xs)',
+    'sm': 'var(--gap-sm)',
+    'base': 'var(--gap-base)',
+    'lg': 'var(--gap-lg)',
+    'xl': 'var(--gap-xl)',
+    '2xl': 'var(--gap-2xl)',
+    '3xl': 'var(--gap-3xl)',
+    '4xl': 'var(--gap-4xl)'
 }
 
-export function getGapValue<T extends Theme>(
-	theme: T,
-	gap: Gap<T['gaps']>
+export type Gap = keyof typeof Gaps | CSSLength | number
+
+export function getGapValue(
+	gap: Gap
 ): Maybe<CSSLength> {
-	const gaps = theme.gaps ?? defaultGaps
-
-	if (typeof gap === 'string' && isCssLength(gap)) {
-		return gap
-	} else if (typeof gap === 'number') {
-		return `${gap}px`
-	}
-
-	return gaps[gap] ?? '0px'
+    return typeof gap === 'number' ? `${gap}px`
+        : gap in Gaps ? Gaps[gap]
+        : isCssLength(gap) ? gap
+        : '0px'
 }

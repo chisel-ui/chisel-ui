@@ -1,0 +1,19 @@
+---
+import Component from './Component.astro'
+import './Icon.css'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+    label?: string
+}
+
+const {
+    label,
+    ...props
+} = Astro.props as Props
+---
+
+<Component data-chisel-icon role="img" {...props}>
+    <slot />
+    {label && (<span>{label}</span>)}
+</Component>

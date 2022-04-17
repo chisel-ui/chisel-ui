@@ -1,0 +1,15 @@
+---
+import Component from './Component.astro'
+import './Float.css'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+    fixed?: boolean
+}
+
+const { fixed = false, ...props } = Astro.props as Props
+---
+
+<Component data-chisel-float={fixed ? 'fixed' : ''} {...props}>
+    <slot />
+</Component>

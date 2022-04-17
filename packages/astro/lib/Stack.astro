@@ -1,15 +1,36 @@
 ---
-import Layout from './Layout.astro'
+import { uid } from '@chisel-ui/core'
 import './Stack.css'
-import type { Theme } from '@chisel-ui/core'
-import type { Props as LayoutProps } from './Layout.astro'
+import Component from './Component.astro'
+import type { Props as ComponentProps } from './Component.astro'
 
-export interface Props<T extends Theme = Theme> extends LayoutProps<T> { }
+export interface Props extends ComponentProps {
+	splitAfter?: number
+}
 
-const { ...props } = Astro.props as Props
+const {
+	splitAfter,
+    id = uid(),
+    ...props
+} = Astro.props as Props
+
+
+
+const inlineStyle = splitAfter && `
+#${id}:only-child {
+	block-size: 100%;
+}
+
+#{$id} > :nth-child(${splitAfter}) {
+	margin-block-end: auto;
+}
+`
 ---
 
-<Layout data-chisel-stack {...props}>
-	<slot />
-</Layout>
+{inlineStyle && (
+	<style set:html={inlineStyle}></style>
+)}
 
+<Component data-chisel-stack {id} {...props}>
+    <slot />
+</Component>

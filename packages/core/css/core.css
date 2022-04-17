@@ -1,0 +1,86 @@
+:where(:root) {
+  --measure: 85ch;
+  --ratio: 1.5;
+
+  --gap-4xs: calc(var(--gap-3xs) / var(--ratio));
+  --gap-3xs: calc(var(--gap-2xs) / var(--ratio));
+  --gap-2xs: calc(var(--gap-xs) / var(--ratio));
+  --gap-xs: calc(var(--gap-sm) / var(--ratio));
+  --gap-sm: calc(var(--gap-base) / var(--ratio));
+  --gap-base: 1rem;
+  --gap-lg: calc(var(--gap-base) * var(--ratio));
+  --gap-xl: calc(var(--gap-lg) * var(--ratio));
+  --gap-2xl: calc(var(--gap-xl) * var(--ratio));
+  --gap-3xl: calc(var(--gap-2xl) * var(--ratio));
+  --gap-4xl: calc(var(--gap-3xl) * var(--ratio));
+
+  --text-xs: calc(var(--text-sm) / var(--ratio));
+  --text-sm: calc(var(--text-base) / var(--ratio));
+  --text-base: 1rem;
+  --text-lg: calc(var(--text-base) * var(--ratio));
+  --text-xl: calc(var(--text-lg) * var(--ratio));
+  --text-2xl: calc(var(--text-xl) * var(--ratio));
+  --text-3xl: calc(var(--text-2xl) * var(--ratio));
+  --text-4xl: calc(var(--text-3xl) * var(--ratio));
+
+  --border-thin: .125rem;
+  --border-medium: calc(var(--border-thin) * var(--ratio) * var(--ratio));
+  --border-thick: calc(var(--border-medium) * var(--ratio) * var(--ratio));
+
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+}
+
+:where(*) {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-inline-size: var(--measure);
+}
+
+:where(html, body, div, header, nav, main, footer) {
+  max-inline-size: none;
+}
+
+:where(h1) {
+  font-size: var(--text-4xl);
+}
+
+:where(h2) {
+  font-size: var(--text-3xl);
+}
+
+:where(h3) {
+  font-size: var(--text-2xl);
+}
+
+:where(h4) {
+  font-size: var(--text-xl);
+}
+
+:where(h5) {
+  font-size: var(--text-lg);
+}
+
+:where(body, html) {
+  background: var(--neutral-50);
+  color: var(--neutral-900);
+  font-size: var(--text-base);
+}
+
+:where(small) {
+  font-size: var(--text-sm);
+}
+
+:where(a) {
+  font-size: inherit;
+}

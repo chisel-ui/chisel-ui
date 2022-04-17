@@ -1,21 +1,22 @@
 {
-	"name": "@chisel-ui/astro",
-	"version": "0.6.0",
-	"type": "module",
-	"exports": {
-		".": "./index.ts"
-	},
-	"files": [
-		"index.ts",
-		"lib"
-	],
-	"keywords": [
+  "name": "@chisel-ui/astro",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "index.ts",
+    "lib"
+  ],
+  "keywords": [
 		"withastro",
 		"astro-component",
 		"layout",
 		"primitives"
 	],
-	"dependencies": {
-		"@chisel-ui/core": "workspace:*"
-	}
+  "devDependencies": {
+    "@chisel-ui/core": "workspace:*",
+    "astro": "^1.0.0-beta.12"
+  }
 }

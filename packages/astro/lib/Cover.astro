@@ -1,37 +1,34 @@
 ---
-import { getBreakpointValue, joinStyles } from '@chisel-ui/core'
+import { getCssLength, joinStyles } from '@chisel-ui/core'
+import Component from './Component.astro'
 import './Cover.css'
-import Layout from './Layout.astro'
-import type { Breakpoint, Theme } from '@chisel-ui/core'
-import type { Props as LayoutProps } from './Layout.astro'
+import type { CSSLength } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
 
-export interface Props<T extends Theme = Theme> extends LayoutProps<T> {
-	minHeight?: Breakpoint<T['breakpoints']>
-	stretchContent?: boolean
+export interface Props extends ComponentProps {
+    minHeight?: CSSLength
+    stretch?: boolean
 }
 
-const { theme = {}, minHeight = '100vh', stretchContent = false, style = '', ...props } = Astro.props as Props
+const {
+    minHeight,
+    stretch = false,
+    style = '',
+    ...props
+} = Astro.props as Props
 
-const safeMinHeight = getBreakpointValue(theme, minHeight)
+const maybeMinHeight = getCssLength(minHeight)
 
 const componentStyle = joinStyles(
-    `--min-height: ${safeMinHeight}`,
+    `--min-height: ${maybeMinHeight || '100vh'}`,
     style
 )
 ---
 
-<Layout data-chisel-cover={stretchContent ? 'stretch' : ''} style={componentStyle} {theme} {...props}>
-    {Astro.slots.top && (
-        <div data-chisel-cover-top>
-            <slot name="top" />
-        </div>
-    )}
+<Component data-chisel-cover={stretch ? 'stretch' : ''} style={componentStyle} {...props}>
+    <slot name="before" />
     <div data-chisel-cover-centered>
         <slot />
     </div>
-    {Astro.slots.bottom && (
-        <div data-chisel-cover-bottom>
-            <slot name="bottom" />
-        </div>
-    )}
-</Layout>
+    <slot name="after" />
+</Component>

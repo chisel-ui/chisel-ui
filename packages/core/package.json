@@ -1,18 +1,18 @@
 {
-	"name": "@chisel-ui/core",
-	"version": "0.6.1",
-	"type": "module",
-	"exports": {
-		".": "./index.ts",
-		"./reset.css": "./css/reset.css",
-		"./opinionated.css": "./css/opinionated.css"
-	},
-	"files": [
-		"index.ts",
-		"css",
-		"lib"
-	],
-	"keywords": [
+  "name": "@chisel-ui/core",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./core.css": "./css/core.css",
+    "./reset.css": "./css/reset.css"
+  },
+  "files": [
+    "index.ts",
+    "css",
+    "lib"
+  ],
+  "keywords": [
 		"layout",
 		"primitives",
 		"reset"

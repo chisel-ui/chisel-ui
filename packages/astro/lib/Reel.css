@@ -1,0 +1,17 @@
+[data-chisel-reel] {
+    display: flex;
+    block-size: var(--height, auto);
+    overflow-y: hidden;
+    overflow-x: auto;
+    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
+}
+
+[data-chisel-reel] > * {
+    flex: 0 0 var(--item-width, auto);
+}
+
+[data-chisel-reel] > :is(img, video) {
+    block-size: 100%;
+    flex-basis: auto;
+    width: auto;
+}
