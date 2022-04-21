@@ -1,6 +1,8 @@
 export { default as Box, Props as BoxProps } from './lib/Box.astro'
 export { default as Center, Props as CenterProps } from './lib/Center.astro'
 export { default as Cluster, Props as ClusterProps } from './lib/Cluster.astro'
+export { default as Column, Props as ColumnProps } from './lib/Column.astro'
+export { default as Columns, Props as ColumnsProps } from './lib/Columns.astro'
 export { default as Component, Props as ComponentProps } from './lib/Component.astro'
 export { default as Cover, Props as CoverProps } from './lib/Cover.astro'
 export { default as Float, Props as FloatProps } from './lib/Float.astro'

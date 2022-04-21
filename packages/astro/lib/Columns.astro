@@ -1,0 +1,51 @@
+---
+import { getCssLength, uid } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { CSSLength } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+	columns?: number
+	dense?: boolean
+	threshold?: CSSLength
+}
+
+const {
+	id = uid(),
+	columns = 1,
+	dense = false,
+	threshold = '0px',
+	...props
+} = Astro.props as Props
+
+const safeColumns = columns ?? 1
+const maybeThreshold = getCssLength(threshold)
+
+const inlineStyle = `
+    @media (min-width: ${maybeThreshold}) {
+        #${id} {
+            --columns: ${safeColumns};
+        }
+    }
+`
+---
+
+<Component data-chisel-columns={dense ? 'dense' : ''} {id} {...props}>
+	<slot />
+</Component>
+
+<style set:html={inlineStyle}></style>
+
+<style is:global>
+[data-chisel-columns] {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 1), 1fr);
+    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+    grid-auto-flow: row;
+}
+
+[data-chisel-columns='dense'] {
+    grid-auto-flow: row dense;
+}
+</style>
