@@ -1,0 +1,56 @@
+---
+import { getCssLength, uid } from '@chisel-ui/core'
+import Component from './Component.astro'
+import type { CSSLength } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+	fraction?: `${number}/${number}` | `${number} / ${number}` | 'auto-start' | 'auto-end'
+	threshold?: CSSLength
+}
+
+const FRACTION_PATTERN = /(?:[1-9][0-9]*|0).?\/.?[1-9][0-9]*/g
+function getFraction(value: Props['fraction']) {
+	if (value.match(FRACTION_PATTERN)) {
+		const [start, end] = value.split('/')
+		return `${start.trim()}fr ${end.trim()}fr`
+	} else if (value === 'auto-start') {
+		return 'auto 1fr'
+	} else if (value === 'auto-end') {
+		return '1fr auto'
+	} else {
+		return '1fr 2fr'
+	}
+}
+
+const {
+	id = uid(),
+	fraction = '1/2',
+	threshold = '0px',
+	...props
+} = Astro.props as Props
+
+const safeFraction = getFraction(fraction)
+const safeThreshold = getCssLength(threshold)
+const inlineStyle = `
+    @media (min-width: ${safeThreshold}) {
+        #${id} {
+            --columns: ${safeFraction};
+        }
+    }
+`
+---
+
+<Component data-chisel-split {id} {...props}>
+	<slot />
+</Component>
+
+<style set:html={inlineStyle}></style>
+
+<style is:global>
+[data-chisel-split] {
+    display: grid;
+    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+    grid-template-columns: var(--columns, 1fr);
+} 
+</style>

@@ -7,13 +7,10 @@
    box-sizing: border-box;
  }
  /*
-  * 2. Remove default margin and whitespace
+  * 2. Remove default margin
   */
  * {
    margin: 0;
- }
- html {
-   white-space: normal;
  }
  /*
   * Typographic tweaks!

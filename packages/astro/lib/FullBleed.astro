@@ -10,6 +10,8 @@ export interface Props extends ComponentProps {
 
 const {
 	maxWidth,
+    gap,
+    gapInline,
 	style = '',
 	...props
 } = Astro.props as Props
@@ -22,7 +24,7 @@ const componentStyle = joinStyles(
 )
 ---
 
-<Component data-chisel-full-bleed style={componentStyle} {...props}>
+<Component gapInline={gapInline ?? gap ?? 'base'} data-chisel-full-bleed style={componentStyle} {...props}>
 	<slot />
 </Component>
 

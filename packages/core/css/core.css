@@ -1,5 +1,6 @@
 :where(:root) {
-  --measure: 85ch;
+  --measure: 100%;
+  --measure-prose: 80ch;
   --ratio: 1.5;
 
   --gap-4xs: calc(var(--gap-3xs) / var(--ratio));
@@ -14,14 +15,14 @@
   --gap-3xl: calc(var(--gap-2xl) * var(--ratio));
   --gap-4xl: calc(var(--gap-3xl) * var(--ratio));
 
-  --text-xs: calc(var(--text-sm) / var(--ratio));
-  --text-sm: calc(var(--text-base) / var(--ratio));
+  --text-xs: calc(var(--text-sm) - 0.1vw * var(--ratio));
+  --text-sm: calc(var(--text-base) - 0.1vw * var(--ratio));
   --text-base: 1rem;
-  --text-lg: calc(var(--text-base) * var(--ratio));
-  --text-xl: calc(var(--text-lg) * var(--ratio));
-  --text-2xl: calc(var(--text-xl) * var(--ratio));
-  --text-3xl: calc(var(--text-2xl) * var(--ratio));
-  --text-4xl: calc(var(--text-3xl) * var(--ratio));
+  --text-lg: calc(var(--text-base) + 1vw * var(--ratio));
+  --text-xl: calc(var(--text-lg) + 1vw * var(--ratio));
+  --text-2xl: calc(var(--text-xl) + 1vw * var(--ratio));
+  --text-3xl: calc(var(--text-2xl) + 1vw * var(--ratio));
+  --text-4xl: calc(var(--text-3xl) + 1vw * var(--ratio));
 
   --border-thin: .125rem;
   --border-medium: calc(var(--border-thin) * var(--ratio) * var(--ratio));
@@ -42,7 +43,7 @@
 :where(*) {
   box-sizing: border-box;
   word-wrap: break-word;
-  white-space: pre-wrap;
+  white-space: normal;
   word-break: break-word;
   max-inline-size: var(--measure);
 }

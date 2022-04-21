@@ -6,13 +6,13 @@ importers:
     specifiers:
       '@changesets/changelog-github': ^0.4.4
       '@changesets/cli': ^2.22.0
-      astro: ^1.0.0-beta.14
+      astro: ^1.0.0-beta.16
       prettier: ^2.6.2
       prettier-plugin-astro: ^0.0.12
     devDependencies:
       '@changesets/changelog-github': 0.4.4
       '@changesets/cli': 2.22.0
-      astro: 1.0.0-beta.14
+      astro: 1.0.0-beta.16
       prettier: 2.6.2
       prettier-plugin-astro: 0.0.12
 
@@ -20,11 +20,11 @@ importers:
     specifiers:
       '@chisel-ui/astro': workspace:*
       '@chisel-ui/core': workspace:*
-      astro: ^1.0.0-beta.14
+      astro: ^1.0.0-beta.16
     devDependencies:
       '@chisel-ui/astro': link:../packages/astro
       '@chisel-ui/core': link:../packages/core
-      astro: 1.0.0-beta.14
+      astro: 1.0.0-beta.16
 
   packages/astro:
     specifiers:
@@ -742,8 +742,8 @@ packages:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
     dev: true
 
-  /@types/resolve/1.20.1:
-    resolution: {integrity: sha512-Ku5+GPFa12S3W26Uwtw+xyrtIpaZsGYHH6zxNbZlstmlvMYSZRzOwzwsXbxlVUbHyUucctSyuFtu6bNxwYomIw==}
+  /@types/resolve/1.20.2:
+    resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: true
 
   /@types/semver/6.2.3:
@@ -937,8 +937,8 @@ packages:
       - ts-node
     dev: true
 
-  /astro/1.0.0-beta.14:
-    resolution: {integrity: sha512-MNOPBTq01IPYlT8EEMiFaQ4/CWdf109UWNNyXMAAAMEVrSNagfrMWG0qKLiwHlOPjJg68Z0/ZGhZ6vKTGsUsBA==}
+  /astro/1.0.0-beta.16:
+    resolution: {integrity: sha512-dV9ZYnn7rClMbRQsWLSPyZmLHJri1YCUnZlXQ5ZJlwjN+BXkkfPRiDqBMLn96h9LPSjS6Wk1xYqCxh7qQ4/uAA==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -4397,7 +4397,7 @@ packages:
     resolution: {integrity: sha512-ZHqlstlQF449v8glscGRXzL6l2dZvASPCdXJRWG4gHEZlUVx2Jtmr+a2zeVG4LCsKhDXKRj5R3h0C/98UcVAQg==}
     dependencies:
       '@types/json5': 0.0.30
-      '@types/resolve': 1.20.1
+      '@types/resolve': 1.20.2
       json5: 2.2.1
       resolve: 1.22.0
       strip-bom: 4.0.0
