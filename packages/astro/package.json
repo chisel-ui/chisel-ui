@@ -1,6 +1,6 @@
 {
   "name": "@chisel-ui/astro",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -15,6 +15,20 @@
 		"layout",
 		"primitives"
 	],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chisel-ui/chisel-ui.git"
+  },
+  "author": {
+    "name": "Tony Sullivan",
+    "email": "tony.f.sullivan@outlook.com",
+    "url": "https://tonysull.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chisel-ui/chisel-ui/issues"
+  },
+  "homepage": "https://chisel-ui.dev",
   "devDependencies": {
     "@chisel-ui/core": "workspace:*",
     "astro": "^1.0.0-beta.12"

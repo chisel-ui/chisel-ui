@@ -1,6 +1,6 @@
 {
   "name": "@chisel-ui/core",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "type": "module",
   "exports": {
     ".": "./index.ts",
@@ -16,5 +16,19 @@
 		"layout",
 		"primitives",
 		"reset"
-	]
+	],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chisel-ui/chisel-ui.git"
+  },
+  "author": {
+    "name": "Tony Sullivan",
+    "email": "tony.f.sullivan@outlook.com",
+    "url": "https://tonysull.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chisel-ui/chisel-ui/issues"
+  },
+  "homepage": "https://chisel-ui.dev"
 }

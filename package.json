@@ -1,6 +1,6 @@
 {
 	"name": "@chisel-ui",
-	"version": "0.7.0",
+	"version": "0.8.0",
 	"private": true,
 	"scripts": {
 		"dev": "cd demo && astro dev",
@@ -17,5 +17,19 @@
 	},
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"repository": {
+	  "type": "git",
+	  "url": "git+https://github.com/chisel-ui/chisel-ui.git"
+	},
+	"author": {
+	  "name": "Tony Sullivan",
+	  "email": "tony.f.sullivan@outlook.com",
+	  "url": "https://tonysull.co"
+	},
+	"license": "MIT",
+	"bugs": {
+	  "url": "https://github.com/chisel-ui/chisel-ui/issues"
+	},
+	"homepage": "https://chisel-ui.dev"
 }
