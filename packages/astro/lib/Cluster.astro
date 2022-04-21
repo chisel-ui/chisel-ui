@@ -1,10 +1,10 @@
 ---
 import { joinStyles } from '@chisel-ui/core'
 import './Cluster.css'
-import Component from './Component.astro'
-import type { Props as ComponentProps } from './Component.astro'
+import PadBox from './PadBox.astro'
+import type { Props as PadBoxProps } from './PadBox.astro'
 
-export interface Props extends ComponentProps {
+export interface Props extends PadBoxProps {
     justify?: 'start' | 'end' | 'center' | 'between' | 'around'
 	align?: 'start' | 'end' | 'center' | 'stretch'
 }
@@ -56,6 +56,6 @@ const componentStyle = joinStyles(
 )
 ---
 
-<Component data-chisel-cluster style={componentStyle} {...props}>
+<PadBox data-chisel-cluster style={componentStyle} {...props}>
 	<slot />
-</Component>
+</PadBox>

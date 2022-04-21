@@ -2,7 +2,7 @@ import { isCssLength } from './css'
 import type { CSSLength } from './css'
 import type { Maybe } from './utils'
 
-const Gaps = {
+export const Gaps = {
     '4xs': 'var(--gap-4xs)',
     '3xs': 'var(--gap-3xs)',
     '2xs': 'var(--gap-2xs)',

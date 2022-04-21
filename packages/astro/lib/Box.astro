@@ -1,22 +1,16 @@
 ---
 import { getBorderWidthValue, joinStyles } from '@chisel-ui/core'
 import './Box.css'
-import Component from './Component.astro'
-import type { BorderWidth, Gap } from '@chisel-ui/core'
-import type { Props as ComponentProps } from './Component.astro'
+import PadBox from './PadBox.astro'
+import type { BorderWidth } from '@chisel-ui/core'
+import type { Props as PadBoxProps } from './PadBox.astro'
 
-export interface Props extends ComponentProps {
+export interface Props extends PadBoxProps {
     borderWidth?: BorderWidth
-    padding?: Gap
-    paddingInline?: Gap
-    paddingBlock?: Gap
 }
 
 const {
     borderWidth,
-    padding = 'base',
-    paddingInline,
-    paddingBlock,
     style = '',
     ...props
 } = Astro.props as Props
@@ -27,6 +21,6 @@ const componentStyle = joinStyles(
 )
 ---
 
-<Component gap={padding} gapInline={paddingInline} gapBlock={paddingBlock} data-chisel-box style={componentStyle} {...props}>
+<PadBox data-chisel-box style={componentStyle} {...props}>
     <slot />
-</Component>
+</PadBox>

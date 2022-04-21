@@ -1,11 +1,11 @@
 ---
 import { getCssLength, joinStyles } from '@chisel-ui/core'
-import Component from './Component.astro'
+import PadBox from './PadBox.astro'
 import './Cover.css'
 import type { CSSLength } from '@chisel-ui/core'
-import type { Props as ComponentProps } from './Component.astro'
+import type { Props as PadBoxProps } from './PadBox.astro'
 
-export interface Props extends ComponentProps {
+export interface Props extends PadBoxProps {
     minHeight?: CSSLength
     stretch?: boolean
 }
@@ -25,10 +25,10 @@ const componentStyle = joinStyles(
 )
 ---
 
-<Component data-chisel-cover={stretch ? 'stretch' : ''} style={componentStyle} {...props}>
+<PadBox data-chisel-cover={stretch ? 'stretch' : ''} style={componentStyle} {...props}>
     <slot name="before" />
     <div data-chisel-cover-centered>
         <slot />
     </div>
     <slot name="after" />
-</Component>
+</PadBox>

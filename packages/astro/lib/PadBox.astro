@@ -1,0 +1,29 @@
+---
+import { getPaddingStyles, isValidPadding, uid } from '@chisel-ui/core'
+import './PadBox.css'
+import Component from './Component.astro'
+import type { Padding } from '@chisel-ui/core'
+import type { Props as ComponentProps } from './Component.astro'
+
+export interface Props extends ComponentProps {
+	padding?: Padding
+}
+
+const { id = uid(), padding, ...props } = Astro.props as Props
+
+const safePadding = isValidPadding(padding) && getPaddingStyles(padding)
+
+const inlineStyle = safePadding && `
+    #${id} {
+        ${safePadding}
+    }
+`
+---
+
+<Component data-chisel-padbox {id}{...props}>
+    <slot />
+</Component>
+
+{inlineStyle && (
+    <style set:html={inlineStyle}></style>
+)}

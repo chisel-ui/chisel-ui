@@ -1,10 +1,10 @@
 ---
 import { uid } from '@chisel-ui/core'
 import './Stack.css'
-import Component from './Component.astro'
-import type { Props as ComponentProps } from './Component.astro'
+import PadBox from './PadBox.astro'
+import type { Props as PadBoxProps } from './PadBox.astro'
 
-export interface Props extends ComponentProps {
+export interface Props extends PadBoxProps {
 	splitAfter?: number
 }
 
@@ -31,6 +31,6 @@ const inlineStyle = splitAfter && `
 	<style set:html={inlineStyle}></style>
 )}
 
-<Component data-chisel-stack {id} {...props}>
+<PadBox data-chisel-stack {id} {...props}>
     <slot />
-</Component>
+</PadBox>
