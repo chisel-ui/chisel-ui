@@ -1,6 +1,5 @@
 ---
 import { getCssLength, joinStyles } from '@chisel-ui/core'
-import './Sidebar.css'
 import Component from './Component.astro'
 import type { CSSLength } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
@@ -35,3 +34,26 @@ const componentStyle = joinStyles(
     <slot name='sidebar' />
     <slot name='content' />
 </Component>
+
+<style is:global>
+[data-chisel-sidebar] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
+}
+
+[data-chisel-sidebar="end"] {
+    flex-direction: row-reverse;
+}
+
+[data-chisel-sidebar] > :first-child {
+    flex-basis: var(--side-width);
+    flex-grow: 1;
+}
+
+[data-chisel-sidebar] > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--content-min, 50%);
+}
+</style>

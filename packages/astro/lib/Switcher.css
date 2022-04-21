@@ -1,9 +1,0 @@
-[data-chisel-switcher] {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
-}
-
-[data-chisel-switcher] > * {
-    flex-grow: 1;
-}

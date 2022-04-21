@@ -1,7 +1,6 @@
 ---
 import { getCssLength, joinStyles } from '@chisel-ui/core'
 import Component from './Component.astro'
-import './Reel.css'
 import type { CSSLength } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
 
@@ -30,3 +29,24 @@ const componentStyle = joinStyles(
 <Component data-chisel-reel style={componentStyle} {...props}>
     <slot />
 </Component>
+
+<style is:global>
+[data-chisel-reel] {
+    display: flex;
+    block-size: var(--height, auto);
+    overflow-y: hidden;
+    overflow-x: auto;
+    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
+}
+
+[data-chisel-reel] > * {
+    flex: 0 0 var(--item-width, auto);
+}
+
+[data-chisel-reel] > :is(img, video) {
+    block-size: 100%;
+    flex-basis: auto;
+    width: auto;
+}
+
+</style>

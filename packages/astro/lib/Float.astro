@@ -1,6 +1,5 @@
 ---
 import Component from './Component.astro'
-import './Float.css'
 import type { Props as ComponentProps } from './Component.astro'
 
 export interface Props extends ComponentProps {
@@ -13,3 +12,19 @@ const { fixed = false, ...props } = Astro.props as Props
 <Component data-chisel-float={fixed ? 'fixed' : ''} {...props}>
     <slot />
 </Component>
+
+<style is:global>
+[data-chisel-float] {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    max-inline-size: calc(100% - (var(--gap-inline, 0px) * 2));
+    max-block-size: calc(100% - (var(--gap-block, 0px) * 2));
+}
+
+[data-chisel-float="fixed"] {
+    position: fixed;
+}
+</style>

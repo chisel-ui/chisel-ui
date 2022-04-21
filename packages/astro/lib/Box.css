@@ -1,8 +1,0 @@
-[data-chisel-box] {
-  display: block;
-  padding: var(--gap-block, 0px) var(--gap-inline, 0px);
-  border: solid var(--border-width, 0px) var(--neutral-900);
-  /* ↓ For high contrast mode */
-  outline: var(--border-width, var(--border-thin)) solid transparent;
-  outline-offset: calc(var(--border-width, var(--border-thin)) * -1);
-}

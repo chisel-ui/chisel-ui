@@ -1,9 +1,0 @@
-[data-chisel-grid] {
-    box-sizing: border-box;
-    display: grid;
-    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(var(--min-item-width, 250px), 100%), 1fr)
-    );
-}

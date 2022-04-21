@@ -1,6 +1,5 @@
 ---
 import { getCssLength, joinStyles } from '@chisel-ui/core'
-import './FullBleed.css'
 import Component from './Component.astro'
 import { CSSLength } from '@chisel-ui/core'
 import type { Props as ComponentProps } from './Component.astro'
@@ -26,3 +25,23 @@ const componentStyle = joinStyles(
 <Component data-chisel-full-bleed style={componentStyle} {...props}>
 	<slot />
 </Component>
+
+<style is:global>
+[data-chisel-full-bleed] {
+    display: grid;
+    grid-template-columns: 1fr min(
+            var(--max-width, 1440px),
+            calc(100% - (2 * var(--gap-inline, 0px)))
+        ) 1fr;
+    gap: var(--gap-block, 0px) 0px;
+}
+
+[data-chisel-full-bleed] > * {
+    grid-column: 2;
+	width: 100%;
+}
+
+[data-chisel-full-bleed] > [data-chisel-cover] {
+    grid-column: 1 / -1;
+}
+</style>

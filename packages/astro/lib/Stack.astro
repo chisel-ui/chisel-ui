@@ -1,6 +1,5 @@
 ---
 import { uid } from '@chisel-ui/core'
-import './Stack.css'
 import PadBox from './PadBox.astro'
 import type { Props as PadBoxProps } from './PadBox.astro'
 
@@ -34,3 +33,12 @@ const inlineStyle = splitAfter && `
 <PadBox data-chisel-stack {id} {...props}>
     <slot />
 </PadBox>
+
+<style is:global>
+[data-chisel-stack] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+}
+</style>

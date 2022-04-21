@@ -1,7 +1,6 @@
 ---
 import { getCssLength, joinStyles } from '@chisel-ui/core'
 import PadBox from './PadBox.astro'
-import './Cover.css'
 import type { CSSLength } from '@chisel-ui/core'
 import type { Props as PadBoxProps } from './PadBox.astro'
 
@@ -32,3 +31,24 @@ const componentStyle = joinStyles(
     </div>
     <slot name="after" />
 </PadBox>
+
+<style is:global>
+[data-chisel-cover] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-block, 0px) var(--gap-inline, 0px);
+    min-block-size: var(--min-height, 100vh);
+}
+
+[data-chisel-cover-centered] {
+    margin-block-start: auto;
+    margin-block-end: auto;
+}
+
+[data-chisel-cover="stretch"] [data-chisel-cover-centered] {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+</style>

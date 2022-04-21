@@ -1,6 +1,5 @@
 ---
 import { getCssLength, joinStyles, uid } from '@chisel-ui/core'
-import './Switcher.css'
 import PadBox from './PadBox.astro'
 import type { CSSLength } from '@chisel-ui/core'
 import type { Props as PadBoxProps } from './PadBox.astro'
@@ -38,3 +37,15 @@ const inlineStyle = `
 <PadBox {id} data-chisel-switcher style={componentStyle} {...props}>
     <slot />
 </PadBox>
+
+<style is:global>
+[data-chisel-switcher] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
+}
+
+[data-chisel-switcher] > * {
+    flex-grow: 1;
+}
+</style>

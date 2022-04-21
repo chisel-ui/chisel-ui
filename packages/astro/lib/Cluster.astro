@@ -1,6 +1,5 @@
 ---
 import { joinStyles } from '@chisel-ui/core'
-import './Cluster.css'
 import PadBox from './PadBox.astro'
 import type { Props as PadBoxProps } from './PadBox.astro'
 
@@ -59,3 +58,15 @@ const componentStyle = joinStyles(
 <PadBox data-chisel-cluster style={componentStyle} {...props}>
 	<slot />
 </PadBox>
+
+<style is:global>
+[data-chisel-cluster] {
+	box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-block, var(--gap-base)) var(--gap-inline, var(--gap-base));
+    justify-content: var(--justify, 'flex-start');
+    align-items: var(--align, 'flex-align');
+}
+
+</style>

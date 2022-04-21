@@ -1,6 +1,5 @@
 ---
 import { getBorderWidthValue, joinStyles } from '@chisel-ui/core'
-import './Box.css'
 import PadBox from './PadBox.astro'
 import type { BorderWidth } from '@chisel-ui/core'
 import type { Props as PadBoxProps } from './PadBox.astro'
@@ -24,3 +23,14 @@ const componentStyle = joinStyles(
 <PadBox data-chisel-box style={componentStyle} {...props}>
     <slot />
 </PadBox>
+
+<style is:global>
+[data-chisel-box] {
+    display: block;
+    padding: var(--gap-block, 0px) var(--gap-inline, 0px);
+    border: solid var(--border-width, 0px) var(--neutral-900);
+    /* ↓ For high contrast mode */
+    outline: var(--border-width, var(--border-thin)) solid transparent;
+    outline-offset: calc(var(--border-width, var(--border-thin)) * -1);
+}
+</style>
