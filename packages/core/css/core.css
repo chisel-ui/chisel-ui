@@ -15,14 +15,13 @@
   --gap-3xl: calc(var(--gap-2xl) * var(--ratio));
   --gap-4xl: calc(var(--gap-3xl) * var(--ratio));
 
-  --text-xs: calc(var(--text-sm) - 0.1vw * var(--ratio));
-  --text-sm: calc(var(--text-base) - 0.1vw * var(--ratio));
+  --text-4xl: 3.052rem;
+  --text-3xl: 2.441rem;
+  --text-2xl: 1.953rem;
+  --text-xl: 1.563rem;
+  --text-lg: 1.25rem;
   --text-base: 1rem;
-  --text-lg: calc(var(--text-base) + 1vw * var(--ratio));
-  --text-xl: calc(var(--text-lg) + 1vw * var(--ratio));
-  --text-2xl: calc(var(--text-xl) + 1vw * var(--ratio));
-  --text-3xl: calc(var(--text-2xl) + 1vw * var(--ratio));
-  --text-4xl: calc(var(--text-3xl) + 1vw * var(--ratio));
+  ---text-sm: 0.8rem;
 
   --border-thin: .125rem;
   --border-medium: calc(var(--border-thin) * var(--ratio) * var(--ratio));
@@ -75,11 +74,12 @@
 :where(body, html) {
   background: var(--neutral-50);
   color: var(--neutral-900);
-  font-size: var(--text-base);
+  font-size: clamp(16px, 3.85rem, 20px);
 }
 
 :where(small) {
   font-size: var(--text-sm);
+  letter-spacing: 0.05em;
 }
 
 :where(a) {

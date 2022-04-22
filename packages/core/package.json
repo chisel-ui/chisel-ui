@@ -5,7 +5,8 @@
   "exports": {
     ".": "./index.ts",
     "./core.css": "./css/core.css",
-    "./reset.css": "./css/reset.css"
+    "./reset.css": "./css/reset.css",
+    "./theme.css": "./css/theme.css"
   },
   "files": [
     "index.ts",
