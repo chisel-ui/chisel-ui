@@ -1,11 +1,12 @@
 {
   "name": "@chisel-ui/core",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "type": "module",
   "exports": {
     ".": "./index.ts",
     "./core.css": "./css/core.css",
-    "./reset.css": "./css/reset.css"
+    "./reset.css": "./css/reset.css",
+    "./theme.css": "./css/theme.css"
   },
   "files": [
     "index.ts",
