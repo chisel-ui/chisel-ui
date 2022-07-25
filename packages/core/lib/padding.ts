@@ -1,6 +1,6 @@
-import { isCssLength } from './css'
-import { Gaps, getGapValue } from './gaps'
-import type { Gap } from './gaps'
+import { isCssLength } from './css.js'
+import { Gaps, getGapValue } from './gaps.js'
+import type { Gap } from './gaps.js'
 
 export interface PaddingObject {
 	left?: Gap
@@ -41,7 +41,7 @@ function keyToProperty(key: keyof PaddingObject) {
     }
 }
 
-export function isValidPadding(padding: Padding) {
+export function isValidPadding(padding: Padding): boolean {
     if (typeof padding === 'number') {
         return padding >= 0
     } else if (typeof padding === 'string') {

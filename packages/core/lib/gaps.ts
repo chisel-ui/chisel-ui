@@ -1,6 +1,6 @@
-import { isCssLength } from './css'
-import type { CSSLength } from './css'
-import type { Maybe } from './utils'
+import { isCssLength } from './css.js'
+import type { CSSLength } from './css.js'
+import type { Maybe } from './utils.js'
 
 export const Gaps = {
     '4xs': 'var(--gap-4xs)',
@@ -22,6 +22,7 @@ export function getGapValue(
 	gap: Gap
 ): Maybe<CSSLength> {
     return typeof gap === 'number' ? `${gap}px`
+        // @ts-ignore
         : gap in Gaps ? Gaps[gap]
         : isCssLength(gap) ? gap
         : '0px'

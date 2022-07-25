@@ -1,4 +1,4 @@
-import type { Maybe } from "./utils";
+import type { Maybe } from "./utils.js";
 
 export const validCSSColorNames = [
   "black",

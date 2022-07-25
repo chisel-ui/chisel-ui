@@ -3,21 +3,21 @@
   "version": "0.10.0",
   "type": "module",
   "exports": {
-    ".": "./index.ts",
+    ".": "./dist/index.js",
     "./core.css": "./css/core.css",
     "./reset.css": "./css/reset.css",
     "./theme.css": "./css/theme.css"
   },
   "files": [
-    "index.ts",
+    "dist",
     "css",
     "lib"
   ],
   "keywords": [
-		"layout",
-		"primitives",
-		"reset"
-	],
+    "layout",
+    "primitives",
+    "reset"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chisel-ui/chisel-ui.git"
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/chisel-ui/chisel-ui/issues"
   },
-  "homepage": "https://chisel-ui.dev"
+  "homepage": "https://chisel-ui.dev",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
