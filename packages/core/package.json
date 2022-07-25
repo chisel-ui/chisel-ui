@@ -1,6 +1,6 @@
 {
   "name": "@chisel-ui/core",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
@@ -13,6 +13,9 @@
     "css",
     "lib"
   ],
+  "scripts": {
+    "build": "tsc"
+  },
   "keywords": [
     "layout",
     "primitives",
