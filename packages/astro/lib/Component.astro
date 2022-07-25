@@ -26,7 +26,6 @@ const {
 const maybeGapInline = gapInline ?? gap
 const maybeGapBlock = gapBlock ?? gap
 
-console.log({...Astro.props, gap, maybeGapInline, maybeGapBlock})
 const componentStyle = joinStyles(
 	`--gap-inline: ${getGapValue(maybeGapInline)}`,
 	`--gap-block: ${getGapValue(maybeGapBlock)}`,
