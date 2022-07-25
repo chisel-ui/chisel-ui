@@ -33,9 +33,9 @@ const componentStyle = joinStyles(
     display: grid;
     grid-template-columns: 1fr min(
             var(--max-width, 1440px),
-            calc(100% - (2 * var(--gap-inline, 0px)))
+            calc(100% - (2 * var(--gap-inline)))
         ) 1fr;
-    gap: var(--gap-block, 0px) 0px;
+    gap: var(--gap-block) 0px;
 }
 
 [data-chisel-full-bleed] > * {

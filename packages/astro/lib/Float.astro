@@ -20,8 +20,8 @@ const { fixed = false, ...props } = Astro.props as Props
     inset-inline-start: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
-    max-inline-size: calc(100% - (var(--gap-inline, 0px) * 2));
-    max-block-size: calc(100% - (var(--gap-block, 0px) * 2));
+    max-inline-size: calc(100% - (var(--gap-inline) * 2));
+    max-block-size: calc(100% - (var(--gap-block) * 2));
 }
 
 [data-chisel-float="fixed"] {

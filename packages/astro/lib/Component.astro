@@ -17,7 +17,7 @@ export interface Props {
 
 const {
 	as: Tag = 'div',
-	gap,
+	gap = 0,
 	gapInline,
 	gapBlock,
 	style,
@@ -26,9 +26,10 @@ const {
 const maybeGapInline = gapInline ?? gap
 const maybeGapBlock = gapBlock ?? gap
 
+console.log({...Astro.props, gap, maybeGapInline, maybeGapBlock})
 const componentStyle = joinStyles(
-	maybeGapInline && `--gap-inline: ${getGapValue(maybeGapInline)}`,
-	maybeGapBlock && `--gap-block: ${getGapValue(maybeGapBlock)}`,
+	`--gap-inline: ${getGapValue(maybeGapInline)}`,
+	`--gap-block: ${getGapValue(maybeGapBlock)}`,
 	style
 )
 ---
