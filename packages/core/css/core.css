@@ -21,7 +21,7 @@
   --text-xl: 1.563rem;
   --text-lg: 1.25rem;
   --text-base: 1rem;
-  ---text-sm: 0.8rem;
+  --text-sm: 0.8rem;
 
   --border-thin: .125rem;
   --border-medium: calc(var(--border-thin) * var(--ratio) * var(--ratio));
@@ -74,7 +74,7 @@
 :where(body, html) {
   background: var(--neutral-50);
   color: var(--neutral-900);
-  font-size: clamp(16px, 3.85rem, 20px);
+  font-size: clamp(16px, 3.85vw, 20px);
 }
 
 :where(small) {
